@@ -22,7 +22,45 @@
 ### Azure Cosmos DB change feed triggering Azure Functions
 
 - Better queue it up to Service Bus
-- Otherwise, when Azure Functions fail, you have no way to retry
+- Otherwise, when Azure Functions fail, you have no way (or too painful) to retry
+
+### Azure Cosmos DB patch operation
+
+- Consider you are working on `{ tags: ['area-ui', 'bug'] }`
+- While it is easy to add stuff to `tags` without concerning about concurrency, like: `{ op: 'add', path: '/tags/-', value: 'area-accessibility' }`
+- It is difficult to remove stuff because you need index, like: `{ op: 'remove', path: '/tags/2' }`
+- For concurrency requirements, maybe use another document
+
+### Azure Cosmos DB data modelling
+
+These are fun reads:
+
+- https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/model-partition-example
+- https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/modeling-data
+
+Fun part: a container can store 2+ types of documents, and they just need to agree on partition key.
+
+For the "add/remove tags" concurrency problem in the "patch operation" section above, could try out these 2 documents in the same container:
+
+```js
+{
+  "id": "u-00001",
+  "userId": "u-0001", // this is partition key
+  "type": "user",
+  "name": "John Doe"
+}
+```
+
+```js
+{
+  "id": "t-00001",
+  "userId": "u-0001", // this is partition key
+  "type": "tag",
+  "tag": "bug"
+}
+```
+
+Then, when querying the container by `userId`, we grab all documents (of type `user` and `tag`). Then we can turn them back into object model.
 
 ### JavaScript async iterator
 
@@ -55,6 +93,12 @@ app.http('...', {
   }
 }
 ```
+
+### MSAL
+
+- MSAL is great if you use it the way it's intended
+- You can't read "access token" when using `@azure/msal-browser` because you shouldn't access sensitive stuff in browser
+- Acquire token by redirect is nice, because it auto-remove `#code=`
 
 ## 2023-12-25
 
@@ -97,3 +141,29 @@ A package to provide virtualized scrolling to anything. Another Fluent UI Contri
    - Why the sample/scaffold/template is not using/encouraging `useCallback` at all?
       - Why web component devs are not familiar with `useCallback`/`useMemo`?
    - Maybe it's opinionated, but my opinions aren't about their opinions, it's about their facts
+
+## 2023-12-24
+
+### Azure Cosmos DB: throttling request unit
+
+Throttling on client-side (Azure Functions-side) using [`limiter`](https://npmjs.com/package/limiter) package.
+
+```ts
+const limiter = new RateLimiter({ interval: 'second', tokensPerInterval: 50 });
+
+for (const id of idsToRead) {
+  await limiter.removeTokens(1); // Assume minimum request charge is 1
+
+  const result = await database.container('user').item(id).read();
+
+  limiter.removeTokens(result.requestCharge - 1); // No need to await, we already spent that charge. Next caller will pause if throttled.
+
+  yield result.resource;
+}
+```
+
+Throttling through Azure Service Bus scheduled enqueue is not great:
+
+- When some operations fell behind, the scheduled time could be passed for more transactions
+- A boosting effect will occur (many transactions will be executed at the same time)
+- The more transactions to execute, the more likely to get 429, the more likely to fail on the Service Bus processing, the more likely to retry, and more transactions will run again
