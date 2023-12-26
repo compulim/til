@@ -68,7 +68,15 @@ Then, when querying the container by `userId`, we grab all documents (of type `u
 database.container('user').items.readAll({ partitionKey: userId }).fetchAll();
 ```
 
-In other words.
+In other words, if we want to model this object in database:
+
+```js
+{
+  id: 'b-00001',
+  description: 'Button not working',
+  tags: ['bugs', 'area-ui']
+}
+```
 
 Traditionally, you will write this in relational database:
 
@@ -86,6 +94,8 @@ Then, you would normalize it into 2 tables:
 | - | - | - |
 | `t-00001` | `b-00001` | `bugs` |
 | `t-00001` | `b-00001` | `area-ui` |
+
+You should do 2 queries to get the final result out.
 
 But in document DB, you would do:
 
