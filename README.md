@@ -68,7 +68,9 @@ Then, when querying the container by `userId`, we grab all documents (of type `u
 database.container('user').items.readAll({ partitionKey: userId }).fetchAll();
 ```
 
-In other words, if we want to model this object in database:
+#### In other words
+
+If we want to model this object in database:
 
 ```js
 {
