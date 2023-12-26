@@ -76,7 +76,7 @@ const iterate = () => ({
 };
 ```
 
-When returning `{ done: true, value: 123 }`, the value `123` will probably gone if it's done through for-loop.
+When returning `{ done: true, value: 123 }`, the value `123` will probably lost if iteration is done through for-loop.
 
 ### Azure Functions: Server-Sent Events
 
