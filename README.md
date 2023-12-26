@@ -23,7 +23,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 ### Azure Cosmos DB change feed triggering Azure Functions
 
-- Better queue it up to Service Bus
+- Better queue it up to Azure Service Bus
 - Otherwise, when Azure Functions fail, you have no way (or too painful) to retry
 
 ### Azure Cosmos DB patch operation
@@ -143,6 +143,8 @@ A package to provide virtualized scrolling to anything. Another Fluent UI Contri
    - Why the sample/scaffold/template is not using/encouraging `useCallback` at all?
       - Why web component devs are not familiar with `useCallback`/`useMemo`?
    - Maybe it's opinionated, but my opinions aren't about their opinions, it's about their facts
+- UI is good for desktop, not great for mobile (too small, etc.)
+   - If you want "write once", it is still okay
 
 ## 2023-12-24
 
@@ -158,7 +160,7 @@ for (const id of idsToRead) {
 
   const result = await database.container('user').item(id).read();
 
-  limiter.removeTokens(result.requestCharge - 1); // No need to await, we already spent that charge. Next caller will pause if throttled.
+  limiter.removeTokens(result.requestCharge - 1); // No need to await, we already spent that charge. Next caller will pause if throttled
 
   yield result.resource;
 }
