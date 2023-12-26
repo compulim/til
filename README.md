@@ -1,5 +1,7 @@
 # Today I learnt
 
+Point form for speedy writing. 80% correct at the time of writing. Just remind myself what I did.
+
 ## 2023-12-26
 
 ### Authentication in Azure Functions (a.k.a. EasyAuth)
@@ -167,3 +169,13 @@ Throttling through Azure Service Bus scheduled enqueue is not great:
 - When some operations fell behind, the scheduled time could be passed for more transactions
 - A boosting effect will occur (many transactions will be executed at the same time)
 - The more transactions to execute, the more likely to get 429, the more likely to fail on the Service Bus processing, the more likely to retry, and more transactions will run again
+
+### Happy Hacking Keyboard
+
+- It is easy to learn <kbd>CTRL</kbd> and <kbd>CAPSLOCK</kbd> swap
+- It is easy to learn no <kbd>F1</kbd>-<kbd>F12</kbd> keys
+- You don't move your palm at all and you can be very focused on typing and thinking
+- Reduce 80% mouse usage
+- To do <kbd>CTRL</kbd> + <kbd>DELETE</kbd> on a normal keyboard:
+   - <kbd>Fn</kbd> + <kbd>CTRL</kbd> + <kbd>`</kbd> won't work
+   - <kbd>CTRL</kbd> + <kbd>Fn</kbd> + <kbd>`</kbd> will work
