@@ -83,13 +83,14 @@ Then, you would normalize it into 2 tables:
 | `b-00001` | Button not working |
 
 | ID | Bug ID (FK) | Tag |
+| - | - | - |
 | `t-00001` | `b-00001` | `bugs` |
 | `t-00001` | `b-00001` | `area-ui` |
 
 But in document DB, you would do:
 
 | ID | Bug ID (PK) | Type | Description | Tag |
-| - | - | - | - |
+| - | - | - | - | - |
 | `b-00001` | `b-00001` | `bug` | Button not working | |
 | `t-00001` | `b-00001` | `tag` | | `bugs` |
 | `t-00002` | `b-00001` | `tag` | | `area-ui` |
