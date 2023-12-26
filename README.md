@@ -179,3 +179,13 @@ Throttling through Azure Service Bus scheduled enqueue is not great:
 - To do <kbd>CTRL</kbd> + <kbd>DELETE</kbd> on a normal keyboard:
    - <kbd>Fn</kbd> + <kbd>CTRL</kbd> + <kbd>`</kbd> won't work
    - <kbd>CTRL</kbd> + <kbd>Fn</kbd> + <kbd>`</kbd> will work
+
+## 2023-12
+
+### Syncing Pi-Hole configuration online
+
+- Not easy at the current moment
+- `/etc` files of Pi-Hole can be huge files (about 1 GB). And some configuration stored inside their DB files (binary)
+- Some OSS projects attempts to sync. But I think it's non-trivial
+- `rcp` is still good
+- Editing Pi-Hole configuration online is not very helpful because settings store inside DB files
