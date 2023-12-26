@@ -47,7 +47,7 @@ For the "add/remove tags" concurrency problem in the "patch operation" section a
 ```js
 {
   "id": "u-00001",
-  "userId": "u-0001", // this is partition key
+  "userId": "u-00001", // this is partition key
   "type": "user",
   "name": "John Doe"
 }
@@ -56,7 +56,7 @@ For the "add/remove tags" concurrency problem in the "patch operation" section a
 ```js
 {
   "id": "t-00001",
-  "userId": "u-0001", // this is partition key
+  "userId": "u-00001", // this is partition key
   "type": "tag",
   "tag": "bug"
 }
@@ -67,6 +67,32 @@ Then, when querying the container by `userId`, we grab all documents (of type `u
 ```ts
 database.container('user').items.readAll({ partitionKey: userId }).fetchAll();
 ```
+
+In other words.
+
+Traditionally, you will write this in relational database:
+
+| ID | Description | Tags |
+| - | - | - |
+| `b-00001` | Button not working | `bugs,area-ui` |
+
+Then, you would normalize it into 2 tables:
+
+| ID | Description |
+| - | - |
+| `b-00001` | Button not working |
+
+| ID | Bug ID (FK) | Tag |
+| `t-00001` | `b-00001` | `bugs` |
+| `t-00001` | `b-00001` | `area-ui` |
+
+But in document DB, you would do:
+
+| ID | Bug ID (PK) | Type | Description | Tag |
+| - | - | - | - |
+| `b-00001` | `b-00001` | `bug` | Button not working | |
+| `t-00001` | `b-00001` | `tag` | | `bugs` |
+| `t-00002` | `b-00001` | `tag` | | `area-ui` |
 
 ### JavaScript async iterator
 
@@ -94,7 +120,7 @@ Code snippet tested and the result is buffered.
 app.http('...', {
   async handler() {
     const body: AsyncIterator<Uint8Array> = build(); // Will build a SSE output stream
-    
+
     return { body, contentType: 'text/event-stream' };
   }
 }
