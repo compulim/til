@@ -80,8 +80,16 @@ export const parseActivityInput = (data: unknown) => Object.freeze(parse(activit
 export type ActivityInput = ReadonlyDeep<Output<ReturnType<typeof activityInput>>>;
 ```
 
-### `react-window`
+### [`react-window`](https://npmjs.com/package/react-window)
+
+A package to provide virtualized scrolling to anything. Another Fluent UI Contrib to integrate `<DataGrid>` with it.
 
 - Requires JavaScript to set `width`/`height` of the container which hold the virtualized viewport
 - Can't <kbd>CTRL</kbd> + <kbd>F</kbd> to find stuff (via Fluent UI Contrib)
 - Maybe just use [CSS `content-visibility: auto`](https://developer.mozilla.org/en-US/docs/Web/CSS/content-visibility) is good enough (no Safari support)
+
+### Why I still don't like Fluent UI
+
+- `<DataGrid>` has serious performance issues:
+   - Why hovering on 2,000 rows is slow?
+   - Why sorting 2,000 rows takes seconds?
