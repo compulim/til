@@ -97,7 +97,7 @@ Then, you would normalize it into 2 tables:
 | `t-00001` | `b-00001` | `bugs` |
 | `t-00001` | `b-00001` | `area-ui` |
 
-You should do 2 queries to get the final result out.
+In relational database, you should do 2 queries to get the result for object model.
 
 But in document DB, you would do:
 
@@ -106,6 +106,8 @@ But in document DB, you would do:
 | `b-00001` | `b-00001` | `bug` | Button not working | |
 | `t-00001` | `b-00001` | `tag` | | `bugs` |
 | `t-00002` | `b-00001` | `tag` | | `area-ui` |
+
+And you get everything in a single query, while data is normalized.
 
 ### JavaScript async iterator
 
