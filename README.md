@@ -12,8 +12,8 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 - Probably originated from Azure Mobile App Service (Project Zumo)
 - Read this, https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-customize-sign-in-out
 - To authenticate (via MSAL so I can auth on another domain):
-   1. Use MSAL with scopes of "openid"
-   2. Grab the `idToken`
+   1. Use MSAL with scopes of `openid`
+   2. Grab the `idToken` from MSAL call
    3. Send it to /.auth/login/aad with `{ "access_token": idToken }`
    4. Should return with `{ "authenticationToken" }`, this is a local token
    5. On every API calls, add `X-ZUMO-AUTH` with the content of `authenticationToken`
