@@ -29,7 +29,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 ### Azure Cosmos DB patch operation
 
 - Consider you are working on `{ tags: ['area-ui', 'bug'] }`
-- While it is easy to add stuff to `tags` without concerning about concurrency, like: `{ op: 'add', path: '/tags/-', value: 'area-accessibility' }`
+- While it is easy to add stuff to `tags` without concerning about concurrency, like: `{ op: 'add', path: '/tags/-', value: 'area-accessibility' }`, `/-` means append
 - It is difficult to remove stuff because you need index, like: `{ op: 'remove', path: '/tags/2' }`
 - For concurrency requirements, maybe use another document
 
