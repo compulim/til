@@ -88,8 +88,12 @@ A package to provide virtualized scrolling to anything. Another Fluent UI Contri
 - Can't <kbd>CTRL</kbd> + <kbd>F</kbd> to find stuff (via Fluent UI Contrib)
 - Maybe just use [CSS `content-visibility: auto`](https://developer.mozilla.org/en-US/docs/Web/CSS/content-visibility) is good enough (no Safari support)
 
-### Why I still don't like Fluent UI
+### Why I still don't like Fluent UI v9
 
 - `<DataGrid>` has serious performance issues:
    - Why hovering on 2,000 rows is slow?
    - Why sorting 2,000 rows takes seconds?
+   - Why I need to copy `<DataGrid>` template and impossible to recite?
+   - Why the sample/scaffold/template is not using/encouraging `useCallback` at all?
+      - Why web component devs are not familiar with `useCallback`/`useMemo`?
+   - Maybe it's opinionated, but my opinions aren't about their opinions, it's about their facts
