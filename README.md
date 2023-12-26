@@ -64,6 +64,10 @@ For the "add/remove tags" concurrency problem in the "patch operation" section a
 
 Then, when querying the container by `userId`, we grab all documents (of type `user` and `tag`). Then we can turn them back into object model.
 
+```ts
+database.container('user').items.readAll({ partitionKey: userId }).fetchAll();
+```
+
 ### JavaScript async iterator
 
 ```ts
