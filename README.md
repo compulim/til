@@ -2,6 +2,14 @@
 
 Point form for speedy writing. 80% correct at the time of writing. Just remind myself what I did.
 
+## 2024-01-07
+
+### NoSQL: Data modelling
+
+- When partition key is same, we could potentially keep documents in the same container
+- Documents should not keep in the same container when:
+   - Change feed is required for certain type of documents
+
 ## 2023-12-26
 
 ### Authentication in Azure Functions (a.k.a. EasyAuth)
