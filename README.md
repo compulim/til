@@ -24,7 +24,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
    - Rehydrating large working set in orchestration is prone to failure (task being cancelled)
    - If possible, keep large working set in activity and don't output it back to orchestration
 
-### Dealing with 429
+### Dealing with 429 Too Many Requests
 
 Consider using Service Bus to queue HTTP calls that might return as 429. If 429 is received, requeue the message with a schedule based on 429 cooldown period.
 
