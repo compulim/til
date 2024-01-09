@@ -2,6 +2,10 @@
 
 Point form for speedy writing. 80% correct at the time of writing. Just remind myself what I did.
 
+## 2024-01-09
+
+[Interesting read on focus indicator](https://www.sarasoueidan.com/blog/focus-indicators/) around buttons.
+
 ## 2024-01-08
 
 ### Azure Functions: Sub-orchestration vs. activity
