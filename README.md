@@ -2,6 +2,18 @@
 
 Point form for speedy writing. 80% correct at the time of writing. Just remind myself what I did.
 
+## 2024-01-08
+
+### Azure Functions: Sub-orchestration vs. activity
+
+- Sub-orchestration primarily reduce replay cost
+   - After completed, the "heap" in sub-orchestration will be discarded
+   - Save orchestration replay time and minimize point of failures
+- No complex logics or refetching in sub-orchestration
+   - Don't mess with `isReplaying`, doesn't worth it
+- Activity should only run for a short period of time (< 5 minutes)
+   - Sub-orchestration is the pattern for running longer jobs
+
 ## 2024-01-07
 
 ### NoSQL: Data modelling
