@@ -13,7 +13,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
    - High impact: Number of activities executed (total size of activity output)
    - Medium impact: Working set size (size of each activity output)
    - Each activity output is saved into a TGZ file, many activities executed means downloading many TGZ files, means higher chance of failures
-      - If an action is failed due to downloading history, it will be timed out after 5 minutes
+      - When an action start, if it failed to download history, it will be timed out after 5 minutes
    - Consider [extending orchestration session](https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-azure-storage-provider#extended-sessions) (lingering orchestration) to reduce replay boot time
 - No complex logics in sub-orchestration
    - Orchestration replay means it promotes deterministic, which also means idempotency (use cache, minimize refetch)
