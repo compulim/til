@@ -9,10 +9,12 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 - Sub-orchestration primarily reduce replay cost
    - After completed, the "heap" in sub-orchestration will be discarded
    - Save orchestration replay time and minimize point of failures
-- No complex logics or refetching in sub-orchestration
-   - Don't mess with `isReplaying`, doesn't worth it
+- No complex logics in sub-orchestration
+   - Orchestration replay means it promotes idempotency (no refetch)
+   - Don't mess with `isReplaying`, doesn't worth the complexity
 - Activity should only run for a short period of time (< 5 minutes)
    - Sub-orchestration is the pattern for running longer jobs
+- [Some tips here](https://spzsource.github.io/azure/2020/03/07/durable-function-performance-dependence-on-different-payload-size.html)
 
 ## 2024-01-07
 
