@@ -1,6 +1,15 @@
 # Today I learnt
 
-Point form for speedy writing. 80% correct at the time of writing. Just remind myself what I did.
+Point form for speedy writing. 80% correct at the time of writing. Just remind myself what I did. Timestamp is not accurate as I may recall things and writing something I learn some time ago.
+
+## 2024-01-10
+
+### Valibot
+
+- `union()` means `T | U` and `intersect()` means `T & U`
+- `isoTimestamp()` is not quite ISO yet, some improvements could be done
+- Validating all type of inputs is nice, because people may not use TypeScript to write their integration code
+- `parse()` is great at pumping what's wrong, not great at visualizing the wrongs for human
 
 ## 2024-01-09
 
