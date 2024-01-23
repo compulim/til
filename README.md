@@ -13,6 +13,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
    - `yield` in `finally` may not work because exception thrown cannot be caught in generator, and `yield` in `finally` will simply stop `finally`
    - Don't `yield` in `finally`, just like don't `return` in `finally`
 - `IterableIterator` = `Iterable` + `Iterator`
+- Iterable should not return/throw. However, generator natively support return/throw and can become iterable
 - I/O: `Array.from(Iterable)`, `new Map().values instanceof IterableIterator`
 
 Read about [Generator return on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator/return).
