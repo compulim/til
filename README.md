@@ -8,7 +8,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 - `Iterator` is `next`, optional `return` and `throw`
 - `Iterable` is `[Symbol.iterator](): { return { next, return, throw } satisfies Iterator<T>; }`
-   - `Iterator` and `iterable` is interchangeable
+   - `Iterator` and `Iterable` is interchangeable
 - `IterableIterator` = `Iterable` + `Iterator` = `{ [Symbol.iterator]() } & { next(), return(), throw() }`
 - `Generator` is `IterableIterator` with required `return` and `throw`, i.e. all featured and iterable
 - I/O
