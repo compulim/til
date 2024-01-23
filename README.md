@@ -2,6 +2,16 @@
 
 Point form for speedy writing. 80% correct at the time of writing. Just remind myself what I did. Timestamp is not accurate as I may recall things and writing something I learn some time ago.
 
+## 2024-01-22
+
+## Async iterator/iterable/generator
+
+- Generator is `next`-`return`-`throw`, and also iterable
+- Iterator is `next`, maybe `return`-`throw`
+- Using for-loop with generator will lose some ability: no return value and exception thrown cannot be caught in generator
+   - try-finally in generator will still work
+   - `yield` in finally will not work because exception thrown cannot be caught in generator
+
 ## 2024-01-10
 
 ### Valibot
