@@ -15,7 +15,9 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 - `IterableIterator` = `Iterable` + `Iterator`
 - Iterable should generally not `return`/`throw`, thus it is `Iterator<T>` instead of `Iterable<T, TReturn, TNext>`
    - However, generator natively support return/throw and can become iterable
-- I/O: `Array.from(Iterable)`, `new Map().values instanceof IterableIterator`
+- I/O
+   - Input: `Array<T>.from(Iterable<T>)`
+   - Output: `new Map<T>().values instanceof IterableIterator<T>`
 
 Read about [Generator return on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator/return).
 
