@@ -14,6 +14,9 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 - I/O
    - Input: `Array<T>.from(Iterable<T>)`
    - Output: `new Map<T>().values instanceof IterableIterator<T>`
+- Observable and Generator is similar
+   - Observable is event-based, need a worker
+   - Generator is suspended/on-demand, it will not run in background
 
 ### For-loop with iterable/generator
 
