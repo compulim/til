@@ -10,7 +10,8 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 - Iterator is `next`, maybe `return`-`throw`
 - Using for-loop with generator will lose some ability: no return value and exception thrown cannot be caught in generator
    - `try`-`finally` in generator will still work
-   - `yield` in finally may not work because exception thrown cannot be caught in generator, and `yield`-in-`finally` will simply stop `finally`
+   - `yield` in `finally` may not work because exception thrown cannot be caught in generator, and `yield`-in-`finally` will simply stop `finally`
+   - Don't `yield` in `finally`
 
 ## 2024-01-10
 
