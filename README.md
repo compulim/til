@@ -6,7 +6,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 ## Async iterator/iterable/generator
 
-- Generator is `next`-`return`-`throw`, and also iterable
+- Generator is `next`-`return`-`throw`, and also iterable (i.e. `IterableIterator` with concrete `return`/`throw`)
 - Iterator is `next`, maybe `return`-`throw`
 - Iterable means `[Symbol.iterator](): { return { next, return, throw }; }`
 - Using for-loop with generator will lose some ability: no return value and exception thrown cannot be caught in generator
