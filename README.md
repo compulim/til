@@ -78,7 +78,9 @@ export default class IterableIteratorFromIterator<T, TReturn, TNext> implements 
 - Activity should only run for a short period of time (< 5 minutes)
    - Sub-orchestration is the pattern for running longer jobs
 - [Some tips here](https://spzsource.github.io/azure/2020/03/07/durable-function-performance-dependence-on-different-payload-size.html)
-- Large working set
+- Large working set (> 64 KB)
+   - Large working set is saved to storage blob, instead of storage queue
+   - Waking up orchestrator is literally queueing in storage queue
    - Rehydrating large working set in orchestration is prone to failure (task being cancelled)
    - If possible, keep large working set in activity and don't output it back to orchestration
 
