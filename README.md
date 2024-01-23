@@ -10,7 +10,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 - `Iterable` is `[Symbol.iterator](): { return { next, return, throw } satisfies Iterator<T>; }`
    - `Iterator` and `iterable` is interchangeable
 - `IterableIterator` = `Iterable` + `Iterator` = `{ [Symbol.iterator]() } & { next(), return(), throw() }`
-- `Generator` is `IterableIterator` with required `return` + `throw`, i.e. the all featured and iterable
+- `Generator` is `IterableIterator` with required `return` and `throw`, i.e. all featured and iterable
 - I/O
    - Input: `Array<T>.from(Iterable<T>)`
    - Output: `new Map<T>().values instanceof IterableIterator<T>`
