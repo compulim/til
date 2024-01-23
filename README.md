@@ -22,6 +22,26 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 Read about [Generator return on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator/return).
 
+### Converting `Iterator<T>` into `IterableIterator<T>`
+
+```ts
+export default class IterableIteratorFromIterator<T, TReturn, TNext> implements IterableIterator<T> {
+  constructor(iterator: Iterator<T, TReturn, TNext>) {
+    this.next = iterator.next.bind(iterator);
+    this.return = iterator.return && iterator.return.bind(iterator);
+    this.throw = iterator.throw && iterator.throw.bind(iterator);
+  }
+
+  [Symbol.iterator](): IterableIterator<T> {
+    return this;
+  }
+
+  next: () => IteratorResult<T>;
+  return?(value?: TReturn): IteratorResult<T, TReturn>;
+  throw?(e?: any): IteratorResult<T, TReturn>;
+}
+```
+
 ## 2024-01-10
 
 ### Valibot
