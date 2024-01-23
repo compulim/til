@@ -4,21 +4,25 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 ## 2024-01-22
 
-## Async iterator/iterable/generator
+## Iterator/iterable/generator
 
-- Generator is `next`-`return`-`throw`, and also iterable (i.e. `IterableIterator` with concrete `return`/`throw`)
-- Iterator is `next`, maybe `return`-`throw`
-- Iterable means `[Symbol.iterator](): { return { next, return, throw } satisfies Iterator<T>; }`
+- `Iterator` is `next`, maybe `return` and `throw`
+- `Iterable` is `[Symbol.iterator](): { return { next, return, throw } satisfies Iterator<T>; }`
+   - `Iterator` and `iterable` is interchangeable
+- `IterableIterator` = `Iterable` + `Iterator` = `{ [Symbol.iterator]() } & { next(), return(), throw() }`
+- `Generator` is `next`-`return`-`throw`, and also iterable, i.e. the most advanced
+- I/O
+   - Input: `Array<T>.from(Iterable<T>)`
+   - Output: `new Map<T>().values instanceof IterableIterator<T>`
+
+### For-loop with iterable/generator
+
 - Using for-loop with generator will lose some ability: no return value and exception thrown cannot be caught in generator
    - `try`-`finally` in generator will still work
    - `yield` in `finally` may not work because exception thrown cannot be caught in generator, and `yield` in `finally` will simply stop `finally`
    - Maybe refrain from `yield` in `finally`
-- `IterableIterator` = `Iterable` (`[Symbol.iterator]()`) + `Iterator` (`next()`/`return()`/`throw()`)
-- Iterable should generally use with for-loop, which don't `next(value)`/`return`, thus it is `Iterator<T>` instead of `Iterable<T, TReturn, TNext>`
-   - However, generator natively support return/throw and can become iterable
-- I/O
-   - Input: `Array<T>.from(Iterable<T>)`
-   - Output: `new Map<T>().values instanceof IterableIterator<T>`
+- Iterable should generally use with for-loop, which don't call `next` with a value or expose `return`, thus it is `Iterator<T>` instead of `Iterable<T, TReturn, TNext>`
+   - However, generator natively support return/throw and can become iterable, for-loop-ing a generator may miss some values
 
 Read about [Generator return on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator/return).
 
