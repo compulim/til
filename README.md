@@ -14,7 +14,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
    - `yield` in `finally` may not work because exception thrown cannot be caught in generator, and `yield` in `finally` will simply stop `finally`
    - Maybe refrain from `yield` in `finally`
 - `IterableIterator` = `Iterable` (`[Symbol.iterator]()`) + `Iterator` (`next()`/`return()`/`throw()`)
-- Iterable should generally not `return`/`throw`, thus it is `Iterator<T>` instead of `Iterable<T, TReturn, TNext>`
+- Iterable should generally use with for-loop, which don't `next(value)`/`return`, thus it is `Iterator<T>` instead of `Iterable<T, TReturn, TNext>`
    - However, generator natively support return/throw and can become iterable
 - I/O
    - Input: `Array<T>.from(Iterable<T>)`
