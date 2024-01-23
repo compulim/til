@@ -15,8 +15,9 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
    - Input: `Array<T>.from(Iterable<T>)`
    - Output: `new Map<T>().values instanceof IterableIterator<T>`
 - Observable and Generator is similar
-   - Observable is event-based, need a worker to drive its data
-   - Generator is suspended/on-demand, it will not run in background and do not need a worker to drive the data
+   - `Observable` is event-based, need a worker to drive its data
+   - `Generator` is suspended/on-demand, it will not run in background and do not need a worker to drive the data
+   - `Observable` is even more similar to `ReadableStream` (`close`/`enqueue`/`error`) with a worker
 
 ### For-loop with iterable/generator
 
