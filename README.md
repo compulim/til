@@ -8,7 +8,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 - Generator is `next`-`return`-`throw`, and also iterable (i.e. `IterableIterator` with concrete `return`/`throw`)
 - Iterator is `next`, maybe `return`-`throw`
-- Iterable means `[Symbol.iterator](): { return { next, return, throw }; }`
+- Iterable means `[Symbol.iterator](): { return { next, return, throw } satisfies Iterator<T>; }`
 - Using for-loop with generator will lose some ability: no return value and exception thrown cannot be caught in generator
    - `try`-`finally` in generator will still work
    - `yield` in `finally` may not work because exception thrown cannot be caught in generator, and `yield` in `finally` will simply stop `finally`
