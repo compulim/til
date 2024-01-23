@@ -12,7 +12,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 - Using for-loop with generator will lose some ability: no return value and exception thrown cannot be caught in generator
    - `try`-`finally` in generator will still work
    - `yield` in `finally` may not work because exception thrown cannot be caught in generator, and `yield` in `finally` will simply stop `finally`
-   - Don't `yield` in `finally`, just like don't `return` in `finally`
+   - Maybe refrain from `yield` in `finally`
 - `IterableIterator` = `Iterable` (`[Symbol.iterator]()`) + `Iterator` (`next()`/`return()`/`throw()`)
 - Iterable should generally not `return`/`throw`, thus it is `Iterator<T>` instead of `Iterable<T, TReturn, TNext>`
    - However, generator natively support return/throw and can become iterable
