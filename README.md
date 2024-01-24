@@ -15,7 +15,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
    - Input: `Array<T>.from(Iterable<T>)`
    - Output: `new Map<T>().values instanceof IterableIterator<T>`
 - Siblings
-   - `Observable` vs. `Generator`
+   - `Observable` (`complete`/`error`/`next`) vs. `Generator` (`next`/`return`/`throw`)
       - `Generator` is suspended/on-demand/pull-based, it will not run in background and do not need a worker to drive its data
       - `Observable` is event-based, it requires a worker to drive its data
    - `Observable` vs. `EventTarget`
