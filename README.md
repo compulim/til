@@ -15,11 +15,15 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
    - Input: `Array<T>.from(Iterable<T>)`
    - Output: `new Map<T>().values instanceof IterableIterator<T>`
 - Siblings
-   - `Observable` is event-based, need a worker to drive its data
-   - `Generator` is suspended/on-demand, it will not run in background and do not need a worker to drive the data
-   - `Observable` (`complete`/`error`/`next`) is similar to [`ReadableStream`](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream) (`close`/`enqueue`/`error`), both works with a worker
-      - `Observable` is push-based, `ReadableStream` can be either or both push-based and pull-based
-   - `ReadableStream` has watermark and can be automatically corked if `pull()` is implemented
+   - `Observable` vs. `Generator`
+      - `Generator` is suspended/on-demand/pull-based, it will not run in background and do not need a worker to drive its data
+      - `Observable` is event-based, it requires a worker to drive its data
+   - `Observable` vs. `EventTarget`
+      - `EventTarget is real time. If no one listen to event, dispatched events will be lost. `Observable` buffer it until subscriber ready for it
+      - When subscribing to an `EventTarget`, it does not know about it. `Observable` know when someone subscribes to it and normally start a new instance/operation
+   - `Observable` (`complete`/`error`/`next`) vs. [`ReadableStream`](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream) (`close`/`enqueue`/`error`)
+      - `Observable` is push-based (must have a worker), `ReadableStream` can be either or both push-based and pull-based (not having a worker)
+      - When implementing pull-based `ReadableStream`, it has watermark and can be automatically corked (not pulling)
 
 ### For-loop with iterable/generator
 
