@@ -24,7 +24,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
       - `EventTarget` is singleton (one in its world), and `Observable` is single instance (many in its world)
    - `Observable` (`complete`/`error`/`next`) vs. [`ReadableStream`](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream) (`close`/`enqueue`/`error`)
       - `Observable` is push-based (must have a worker), `ReadableStream` can be either or both push-based and pull-based (not having a worker)
-      - When implementing pull-based `ReadableStream`, it has watermark and can be automatically corked (not pulling)
+      - When implementing pull-based `ReadableStream`, it has watermark and can be automatically corked by not pulling if watermark is high
       - `ReadableStream` can easily tee and perform transformation
 
 ### For-loop with iterable/generator
