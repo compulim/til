@@ -19,7 +19,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
       - `Generator` is suspended/on-demand/pull-based, it will not run in background and do not need a worker to drive its data
       - `Observable` is event-based, it requires a worker to drive its data
    - `Observable` vs. `EventTarget`
-      - `EventTarget is real time. If no one listen to event, dispatched events will be lost. `Observable` buffer it until subscriber ready for it
+      - `EventTarget` is real time. If no one listen to event, dispatched events will be lost. `Observable` buffer it until subscriber ready for it
       - When subscribing to an `EventTarget`, it does not know about it. `Observable` know when someone subscribes to it and normally start a new instance/operation
    - `Observable` (`complete`/`error`/`next`) vs. [`ReadableStream`](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream) (`close`/`enqueue`/`error`)
       - `Observable` is push-based (must have a worker), `ReadableStream` can be either or both push-based and pull-based (not having a worker)
