@@ -24,6 +24,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
    - `Observable` (`complete`/`error`/`next`) vs. [`ReadableStream`](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream) (`close`/`enqueue`/`error`)
       - `Observable` is push-based (must have a worker), `ReadableStream` can be either or both push-based and pull-based (not having a worker)
       - When implementing pull-based `ReadableStream`, it has watermark and can be automatically corked (not pulling)
+      - `ReadableStream` can easily tee and perform transformation
 
 ### For-loop with iterable/generator
 
