@@ -20,7 +20,8 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
       - `Observable` is event-based, it requires a worker to drive its data
    - `Observable` vs. `EventTarget`
       - `EventTarget` is real time. If no one listen to event, dispatched events will be lost. `Observable` buffer it until subscriber ready for it
-      - When subscribing to an `EventTarget`, it does not know about it. `Observable` know when someone subscribes to it and normally start a new instance/operation
+      - When subscribing to an `EventTarget`, it does not know about it. `Observable` knows when someone subscribes to it and normally start a new instance/operation
+      - `EventTarget` is singleton (one in the world), and `Observable` is single instance (many in the world)
    - `Observable` (`complete`/`error`/`next`) vs. [`ReadableStream`](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream) (`close`/`enqueue`/`error`)
       - `Observable` is push-based (must have a worker), `ReadableStream` can be either or both push-based and pull-based (not having a worker)
       - When implementing pull-based `ReadableStream`, it has watermark and can be automatically corked (not pulling)
