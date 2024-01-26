@@ -26,6 +26,9 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
       - `Observable` is push-based (must have a worker), `ReadableStream` can be either or both push-based and pull-based (not having a worker)
       - When implementing pull-based `ReadableStream`, it has watermark and can be automatically corked by not pulling if watermark is high
       - `ReadableStream` can easily tee and perform transformation (N:M transformation)
+   - `ReadableStream` vs. `Generator`
+      - `Generator` is easier to write thanks to `function* ()` syntactic sugars
+         - Say, "after generator is completely iterated, run some logics" is not trivial to build using `ReadableStream` but `Generator`
 
 ### For-loop with iterable/generator
 
