@@ -16,6 +16,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
    - No HTTP, but KEDA
 - Can run infinite/continuous process (minimum replica = 1)
 - Can deploy from private registry
+- Can run Azure Functions by hosting the function on a Docker image, with limited triggers: HTTP, Storage Queue, Service Bus, Event Hubs, Kafka. No Cosmos DB
 
 ## 2024-01-22
 
