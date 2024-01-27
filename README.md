@@ -26,7 +26,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 - Azure Container Apps Job did not emit log properly to log workspace
 - Once a job trigger is configured, it is not possible to reconfigure it
 - Takes about 15 seconds to boot and run
-- One job resource = one job + one trigger
+- One job resource = one job + one trigger + multiple container (init + job)
 
 ## 2024-01-22
 
