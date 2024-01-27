@@ -13,6 +13,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
    - Number of blobs, but not changes to blobs
    - Queue is okay, but not Cosmos DB changes
    - Kubernetes style of handling events
+   - Event Grid does not support pull for events from Azure services
 - Jobs does not support Dapr (microservices orchestration) and no ingress
    - No HTTP, but KEDA
 - Can run infinite/continuous process (minimum replica = 1)
