@@ -4,7 +4,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 ## 2024-01-27
 
-## First look at Azure Container Apps
+## Reading docs about Azure Container Apps
 
 - Azure Container Apps is, quickly spin up to handle load (scaler includes HTTP, pull-based events, cron), then slowly reduce replica to zero
 - Azure Container Apps is similar to Azure Kubernetes Service
