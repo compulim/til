@@ -7,7 +7,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 ## Reading docs about Azure Container Apps
 
 - Azure Container Apps is, quickly spin up to handle load (scaler includes HTTP, pull-based events, cron), then slowly reduce replica to zero
-- Azure Container Apps is similar to Azure Kubernetes Service
+- Azure Container Apps is similar to Azure Kubernetes Service, but more-or-less a managed version of AKS
 - Events must be pull-based ([KEDA](https://keda.sh/))
    - Number of blobs, but not changes to blobs
    - Queue is okay, but not Cosmos DB changes
