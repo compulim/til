@@ -4,7 +4,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 ## 2024-01-27
 
-## Reading docs about Azure Container Apps
+## Reading [docs about Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/)
 
 - Azure Container Apps is more-or-less a managed version of Azure Kubernetes Service
    - [Excerpt](https://learn.microsoft.com/en-us/azure/azure-functions/functions-container-apps-hosting): "Container Apps uses the power of the underlying Azure Kubernetes Service (AKS) while removing the complexity of having to work with Kubernetes APIs."
