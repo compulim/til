@@ -14,11 +14,12 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
    - Queue is okay, but not Cosmos DB changes
    - Kubernetes style of handling events
    - Event Grid does not support pull for events from Azure services
+      - Event Grid can route events to Azure Queue storage or Azure Event Hubs
 - Jobs does not support Dapr (microservices orchestration) and no ingress
    - No HTTP, but KEDA
 - Can run infinite/continuous process (minimum replica = 1)
 - Can deploy from private registry
-- Can run Azure Functions by hosting the function on a Docker image, with limited triggers: HTTP, Storage Queue, Service Bus, Event Hubs, Kafka. No Cosmos DB. Not parity
+- Can run Azure Functions by hosting the function on a Docker image, with limited triggers: HTTP, Queue storage, Service Bus, Event Hubs, Kafka. No Cosmos DB. Not parity
 
 ## 2024-01-22
 
