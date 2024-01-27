@@ -21,11 +21,12 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 - Can deploy from private registry
 - Can run Azure Functions by hosting the function on a Docker image, with limited triggers: HTTP, Queue storage, Service Bus, Event Hubs, Kafka. No Cosmos DB and not feature on par
 
-## A bit hands-on
+## A bit hands-on Azure Container Apps Job
 
 - Azure Container Apps Job did not emit log properly to log workspace
 - Once a job trigger is configured, it is not possible to reconfigure it
 - Takes about 15 seconds to boot and run
+- One job resource = one job + one trigger
 
 ## 2024-01-22
 
