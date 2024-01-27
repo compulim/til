@@ -2,6 +2,20 @@
 
 Point form for speedy writing. 80% correct at the time of writing. Just remind myself what I did. Timestamp is not accurate as I may recall things and writing something I learn some time ago.
 
+## 2024-01-27
+
+## First look at Azure Container Apps
+
+- Azure Container Apps is, quickly spin up to handle load (scaler includes HTTP, pull-based events, cron), then slowly reduce replica to zero
+- Azure Container Apps is similar to Azure Kubernetes Service
+- Events must be pull-based ([KEDA](https://keda.sh/))
+   - Number of blobs, but not changes to blobs
+   - Queue is okay, but not Cosmos DB changes
+- Jobs does not support Dapr (microservices orchestration) and no ingress
+   - No HTTP, but KEDA
+- Can run infinite/continuous process (minimum replica = 1)
+- Can deploy from private registry
+
 ## 2024-01-22
 
 ## Iterator/iterable/generator
