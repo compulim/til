@@ -2,6 +2,19 @@
 
 Point form for speedy writing. 80% correct at the time of writing. Just remind myself what I did. Timestamp is not accurate as I may recall things and writing something I learn some time ago.
 
+## Table of contents
+
+| Area         | Product                     | Date                                                                          |
+| ------------ | --------------------------- | ----------------------------------------------------------------------------- |
+| Azure        | Azure Container Apps        | [2024-01-27](#2024-01-27)                                                     |
+| Azure        | Azure Cosmos DB Core        | [2023-12-24](#2023-12-24) [2023-12-26](#2023-12-26) [2024-01-07](#2024-01-07) |
+| Azure        | Azure Functions             | [2023-12-25](#2023-12-25) [2023-12-26](#2023-12-26) [2024-01-08](#2024-01-08) |
+| JavaScript   | Iterable/iterator/generator | [2024-01-22](#2024-01-22)                                                     |
+| JavaScript   | Valibot                     | [2024-01-10](#2024-01-10)                                                     |
+| React        | Fluent UI                   | [2023-12-25](#2023-12-25)                                                     |
+| Hardware     | Happy Hacking Keyboard      | [2023-12-24](#2023-12-24)                                                     |
+| Raspberry Pi | Pi-Hole                     | [2023-12](#2023-12)                                                           |
+
 ## 2024-01-27
 
 ## [Reading docs about Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/)
