@@ -22,6 +22,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 - Brother VC-500W is an AirPrint printer (`pdl = application/octet-stream,image/jpeg,image/png,image/urf`, `kind = roll`, `printer-type = 0x904E`)
 - [Android app](https://play.google.com/store/apps/details?id=com.brother.ptouch.colorlabeleditor2) talks to the printer via AirPrint protocol (`ipp` over port 631, no need `ipps`, `http` and `workstation`)
 - It broadcasts itself through mDNS over port 224.0.0.251:5353
+- Despite the mDNS says the printer is listening to TCP port 631, the Android app connects to TCP port 9100
 
 ## 2024-01-27
 
