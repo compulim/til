@@ -15,6 +15,14 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | Hardware     | Happy Hacking Keyboard      | [2023-12-24](#2023-12-24)                                                     |
 | Raspberry Pi | Pi-Hole                     | [2023-12](#2023-12)                                                           |
 
+## 2024-02-17
+
+### Brother VC-500W color label printer
+
+- Brother VC-500W is an AirPrint printer (`pdl = application/octet-stream,image/jpeg,image/png,image/urf`, `kind = roll`, `printer-type = 0x904E`)
+- [Android app](https://play.google.com/store/apps/details?id=com.brother.ptouch.colorlabeleditor2) talks to the printer via AirPrint protocol (`ipp` over port 631, no need `ipps`, `http` and `workstation`)
+- It broadcasts itself through mDNS over port 224.0.0.251:5353
+
 ## 2024-01-27
 
 ## [Reading docs about Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/)
