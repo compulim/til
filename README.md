@@ -15,13 +15,28 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | Hardware     | Happy Hacking Keyboard      | [2023-12-24](#2023-12-24)                                                     |
 | Raspberry Pi | Pi-Hole                     | [2023-12](#2023-12)                                                           |
 
+## 2024-02-25
+
+### Remote print to Brother VC-500W
+
+- Generally, rebroadcast mDNS and proxy TCP 9100 as Brother is applying industry standard for the label printer
+- Remote printing to printers on network over Wireguard is possible by simply proxying mDNS and TCP 9100
+- Capture mDNS entry (only `ipp` is needed for Android app to work, `http`, `ipps` and `workstation` is not required)
+- Proxy (a.k.a. rebroadcast) the mDNS entry
+- Proxy the traffic at TCP 9100
+- One IP address for one printer only, multiple IP addresses required for multiple printers
+
+On the otherhand, the micro USB port on Brother VC-500W could be simply a USB printer and might be able to expose via CUPS. I didn't explore this area.
+
+If mDNS can be captured over Wireguard (non-multicast network), it could be possible to automatic proxy a printer by simply providing an IP address. I am unsure if mDNS is reachable by simple unicasting.
+
 ## 2024-02-17
 
 ### Brother VC-500W color label printer
 
-- Brother VC-500W is an AirPrint printer (`pdl = application/octet-stream,image/jpeg,image/png,image/urf`, `kind = roll`, `printer-type = 0x904E`)
+- Brother VC-500W broadcast itself as an AirPrint printer (`pdl = application/octet-stream,image/jpeg,image/png,image/urf`, `kind = roll`, `printer-type = 0x904E`)
 - [Android app](https://play.google.com/store/apps/details?id=com.brother.ptouch.colorlabeleditor2) talks to the printer via AirPrint protocol (`ipp` over port 631, no need `ipps`, `http` and `workstation`)
-- It broadcasts itself through mDNS over port 224.0.0.251:5353
+- It broadcasts itself through mDNS over 224.0.0.251:5353
 - Despite the mDNS says the printer is listening to TCP port 631, the Android app connects to TCP port 9100
 
 ## 2024-01-27
