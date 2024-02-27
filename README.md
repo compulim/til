@@ -21,6 +21,12 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 - `align-items: flex-start` or `align-self: flex-start` will interrupt `text-overflow: ellipsis`
 
+### Wireguard client on Raspberry Pi
+
+1. Install PiVPN by `curl -L https://install.pivpn.io/ | bash`
+1. Overwrite `/etc/wireguard/wg0.conf` with the client `.conf` file (i.e. the content of QR code)
+1. Reboot, done
+
 ## 2024-02-25
 
 ### Remote print to Brother VC-500W
