@@ -15,6 +15,12 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | Hardware     | Happy Hacking Keyboard      | [2023-12-24](#2023-12-24)                                                     |
 | Raspberry Pi | Pi-Hole                     | [2023-12](#2023-12)                                                           |
 
+## 2024-02-27
+
+### CSS
+
+- `align-items: flex-start` or `align-self: flex-start` will interrupt `text-overflow: ellipsis`
+
 ## 2024-02-25
 
 ### Remote print to Brother VC-500W
