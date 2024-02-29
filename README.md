@@ -31,7 +31,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 - Flattened vs. embedded graph
    - Flattened: all nodes are at top-level and potentially connected using IRIs or blank nodes
    - Embedded: nodes can be nested into another node, for referencing other nodes that already exists in the graph, IRIs or blank nodes maybe used
-- Schema.org specific
+- Schema.org specifics
    - Singular vs. plural: both is allowed for all properties. Look at property description if they should be explicitly plural
       - [`keywords`](https://schema.org/keywords) is very likely to be plural
       - [`firstAppearance`](https://schema.org/firstAppearance) is very likely to be singular
