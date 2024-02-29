@@ -13,7 +13,20 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | JavaScript   | Valibot                     | [2024-01-10](#2024-01-10)                                                     |
 | React        | Fluent UI                   | [2023-12-25](#2023-12-25)                                                     |
 | Hardware     | Happy Hacking Keyboard      | [2023-12-24](#2023-12-24)                                                     |
-| Raspberry Pi | Pi-Hole                     | [2023-12](#2023-12)                                                           |
+| Raspberry Pi | Pi-Hole                     | [2024-02-27](#2024-02-27) [2023-12](#2023-12)                                 |
+
+## 2024-02-28
+
+### JSON-LD and Schema.org
+
+- `@id`
+   - Self IRI: `''` (empty string) to represent the current document (e.g. the thing that describes the current webpage)
+   - Blank IRI: `'_:b1'` or `'_:anything-valid'` to represent nodes that appears locally
+- Singular vs. plural: both is allowed for all properties. Look at property description if they should be explicitly plural (e.g. [`keywords` property](https://schema.org/keywords))
+- [Key concepts of `Claim`](https://github.com/schemaorg/schemaorg/issues/1828#issuecomment-473390948)
+- "Some data is better than no data."
+- `"@type": "@json"` to mark the data as JSON and keep it as-is during JSON-LD transformation
+- For multiple inheritance, use `"@type": ["DigitalDocument", "MediaObject"]`
 
 ## 2024-02-27
 
