@@ -17,15 +17,22 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 ## 2024-02-28
 
-### JSON-LD and Schema.org
+### [JSON-LD](https://www.w3.org/TR/json-ld11/) and [Schema.org](https://schema.org/)
 
-- Self IRI: `{ "@id": "" }` (empty string) to represent the current document (e.g. the thing that describes the current webpage)
-- Blank IRI: `{ "@id": "_:b1" }` or `{ "@id": "_:any-valid-string" }` to represent nodes that appears locally
+- [Base IRI](https://www.w3.org/TR/json-ld11/#base-iri): `{ "@id": "" }` (empty string) to represent the document base (e.g. the thing that describes the current webpage)
+- [Blank node identifiers](https://www.w3.org/TR/json-ld11/#identifying-blank-nodes): `{ "@id": "_:b1" }` or `{ "@id": "_:any-valid-string" }` to represent nodes that appears locally
+   - Blank node identifiers is used for serializing a graph with a cyclic dependencies and flattening
+   - Nodes that reference other nodes is called [blank node](https://www.w3.org/TR/rdf11-concepts/#dfn-blank-node) and it should only have the `@id` property
 - Singular vs. plural: both is allowed for all properties. Look at property description if they should be explicitly plural (e.g. [`keywords` property](https://schema.org/keywords))
 - [Key concepts of `Claim`](https://github.com/schemaorg/schemaorg/issues/1828#issuecomment-473390948)
 - "Some data is better than no data."
 - `{ "@type": "@json" }` to mark the data as JSON and keep it as-is during JSON-LD transformation
 - For multiple inheritance, use `{ "@type": ["DigitalDocument", "MediaObject"] }`
+- [JSON array in JSON-LD](https://www.w3.org/TR/json-ld11/#advanced-concepts) is unordered by default (a.k.a. set), ordered is explicit (a.k.a. list)
+   - JSON-LD considers set/list is a special type of map with an indexer
+- Flattened vs. embedded graph
+   - Flattened: all nodes are at top-level and potentially connected using IRIs or blank nodes
+   - Embedded: nodes can be nested into another node, for referencing other nodes that already exists in the graph, IRIs or blank nodes maybe used
 
 ## 2024-02-27
 
