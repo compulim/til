@@ -19,13 +19,13 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 ### JSON-LD and Schema.org
 
-- Self IRI: `"@id": ""` (empty string) to represent the current document (e.g. the thing that describes the current webpage)
-- Blank IRI: `"@id": "_:b1"` or `"@id": "_:any-valid-string"` to represent nodes that appears locally
+- Self IRI: `{ "@id": "" }` (empty string) to represent the current document (e.g. the thing that describes the current webpage)
+- Blank IRI: `{ "@id": "_:b1" }` or `{ "@id": "_:any-valid-string" }` to represent nodes that appears locally
 - Singular vs. plural: both is allowed for all properties. Look at property description if they should be explicitly plural (e.g. [`keywords` property](https://schema.org/keywords))
 - [Key concepts of `Claim`](https://github.com/schemaorg/schemaorg/issues/1828#issuecomment-473390948)
 - "Some data is better than no data."
-- `"@type": "@json"` to mark the data as JSON and keep it as-is during JSON-LD transformation
-- For multiple inheritance, use `"@type": ["DigitalDocument", "MediaObject"]`
+- `{ "@type": "@json" }` to mark the data as JSON and keep it as-is during JSON-LD transformation
+- For multiple inheritance, use `{ "@type": ["DigitalDocument", "MediaObject"] }`
 
 ## 2024-02-27
 
