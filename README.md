@@ -23,12 +23,15 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 - [Blank node identifiers](https://www.w3.org/TR/json-ld11/#identifying-blank-nodes): `{ "@id": "_:b1" }` or `{ "@id": "_:any-valid-string" }` to represent nodes that appears locally
    - Blank node identifiers is used for serializing a graph with a cyclic dependencies and flattening
    - Nodes that reference other nodes is called [blank node](https://www.w3.org/TR/rdf11-concepts/#dfn-blank-node) and it should only have the `@id` property
-- Singular vs. plural: both is allowed for all properties. Look at property description if they should be explicitly plural (e.g. [`keywords` property](https://schema.org/keywords))
+- Singular vs. plural: both is allowed for all properties. Look at property description if they should be explicitly plural
+   - [`keywords`](https://schema.org/keywords) is very likely to be plural
+   - [`firstAppearance`](https://schema.org/firstAppearance) is very likely to be singular
 - [Key concepts of `Claim`](https://github.com/schemaorg/schemaorg/issues/1828#issuecomment-473390948)
 - "Some data is better than no data."
 - `{ "@type": "@json" }` to mark the data as JSON and keep it as-is during JSON-LD transformation
-- For multiple inheritance, use `{ "@type": ["DigitalDocument", "MediaObject"] }`
-- [JSON array in JSON-LD](https://www.w3.org/TR/json-ld11/#advanced-concepts) is unordered by default (a.k.a. set), ordered is explicit (a.k.a. list)
+   - Otherwise, JSON-LD processor will ignore unknown properties and removed during transformation
+- For multiple inheritance, use `{ "@type": ["DigitalDocument", "MediaObject"] }` (with [most-recently-defined-wins](https://www.w3.org/TR/json-ld11/#advanced-context-usage))
+- [JSON array in JSON-LD](https://www.w3.org/TR/json-ld11/#advanced-concepts) is implicitly unordered (a.k.a. set), ordered needs to be explicitly specified (a.k.a. list)
    - JSON-LD considers set/list is a special type of map with an indexer
 - Flattened vs. embedded graph
    - Flattened: all nodes are at top-level and potentially connected using IRIs or blank nodes
