@@ -37,6 +37,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
       - [`firstAppearance`](https://schema.org/firstAppearance) is very likely to be singular
    - [Key concepts of `Claim`](https://github.com/schemaorg/schemaorg/issues/1828#issuecomment-473390948)
    - "Some data is better than no data."
+- Very Google-driven and targeting SEO scenarios
 
 ## 2024-02-27
 
