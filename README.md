@@ -15,6 +15,13 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | Hardware     | Happy Hacking Keyboard      | [2023-12-24](#2023-12-24)                                                     |
 | Raspberry Pi | Pi-Hole                     | [2024-02-27](#2024-02-27) [2023-12](#2023-12)                                 |
 
+## 2024-03-21
+
+### GitHub Actions
+
+- Why prevent outsider from running workflow despite the workflow is read-only and use a read-only token?
+   - Outsider can modify workflow in a pull request and run their own payload
+
 ## 2024-02-28
 
 ### [JSON-LD](https://www.w3.org/TR/json-ld11/) and [Schema.org](https://schema.org/)
