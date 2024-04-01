@@ -17,7 +17,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 ## 2024-03-31
 
-### Semver
+### Semantic version: `0.0.1` vs. `0.1.0` vs. `1.0.0`
 
 - Why `0.0.1` is consider less stable?
    - `0.0.2` is not picked up by `npm install my-package@^0.0.1`
