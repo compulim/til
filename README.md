@@ -24,6 +24,10 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
    - `0.0.1` -> `0.0.2` is considered a major bump, could introduce breaking changes
    - `0.0.1` can still be a very high quality build, but it has a tendency to introduce breaking changes in short future, i.e. unstable
    - Unstable and production ready are two different metrics, they are independent of each other. A version can be both unstable and production ready
+- In some perspective:
+   - `0.0.1`: "I will break your stuff on next release."
+   - `0.1.0`: "I will add new feature on next release."
+   - `1.0.0`: "I will fix bugs."
 
 ## 2024-03-21
 
