@@ -15,6 +15,16 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | Hardware     | Happy Hacking Keyboard      | [2023-12-24](#2023-12-24)                                                     |
 | Raspberry Pi | Pi-Hole                     | [2024-02-27](#2024-02-27) [2023-12](#2023-12)                                 |
 
+## 2024-03-31
+
+### Semver
+
+- Why `0.0.1` is consider less stable?
+   - `0.0.1` -> `0.0.2` is considered a major bump, could introduce breaking changes
+   - `0.0.2` is not picked up by `npm install my-package@^0.0.1`
+   - `0.0.1` can still be a very high quality build, but it has a tendency to introduce breaking changes in short future
+   - Unstable and production ready are two different metrics, they are independent of each other. A version can be both unstable and production ready
+
 ## 2024-03-21
 
 ### GitHub Actions
