@@ -30,7 +30,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
    - `0.1.0`: "I will add new feature on next release. Bugs could be fixed along with new features."
       - The product is in exponential growth phase
    - `1.0.0`: "I am okay to pause new work and fix bugs."
-      - The product has support capacity
+      - The product has full support capacity
    - `0.0.1` and `0.1.0` doesn't mean quality issues. It is more about prioritizing release schedule over full support
 
 ## 2024-03-21
