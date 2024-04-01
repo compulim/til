@@ -20,8 +20,8 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 ### Semver
 
 - Why `0.0.1` is consider less stable?
-   - `0.0.1` -> `0.0.2` is considered a major bump, could introduce breaking changes
    - `0.0.2` is not picked up by `npm install my-package@^0.0.1`
+   - `0.0.1` -> `0.0.2` is considered a major bump, could introduce breaking changes
    - `0.0.1` can still be a very high quality build, but it has a tendency to introduce breaking changes in short future
    - Unstable and production ready are two different metrics, they are independent of each other. A version can be both unstable and production ready
 
