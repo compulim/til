@@ -26,8 +26,12 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
    - Unstable and production ready are two different metrics, they are independent of each other. A version can be both unstable and production ready
 - In some perspective:
    - `0.0.1`: "I will break your stuff on next release."
-   - `0.1.0`: "I will add new feature on next release."
-   - `1.0.0`: "I will fix bugs."
+      - The product is in experimental phase
+   - `0.1.0`: "I will add new feature on next release. Bugs could be fixed along with new features."
+      - The product is in exponential growth phase
+   - `1.0.0`: "I am okay to pause new work and fix bugs."
+      - The product has support capacity
+   - `0.0.1` and `0.1.0` doesn't mean quality issues. It is more about prioritizing release schedule over full support
 
 ## 2024-03-21
 
