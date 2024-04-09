@@ -15,6 +15,10 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | Hardware     | Happy Hacking Keyboard      | [2023-12-24](#2023-12-24)                                                     |
 | Raspberry Pi | Pi-Hole                     | [2024-02-27](#2024-02-27) [2023-12](#2023-12)                                 |
 
+## 2024-04-09
+
+Easter Eggs = breathe life into product.
+
 ## 2024-03-31
 
 ### Semantic version: `0.0.1` vs. `0.1.0` vs. `1.0.0`
