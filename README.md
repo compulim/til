@@ -19,6 +19,8 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 Easter Eggs = breathe life into product.
 
+EEE, maybe: expected, exceeded, extraordinary.
+
 ## 2024-03-31
 
 ### Semantic version: `0.0.1` vs. `0.1.0` vs. `1.0.0`
