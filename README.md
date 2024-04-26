@@ -15,6 +15,25 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | Hardware     | Happy Hacking Keyboard      | [2023-12-24](#2023-12-24)                                                     |
 | Raspberry Pi | Pi-Hole                     | [2024-02-27](#2024-02-27) [2023-12](#2023-12)                                 |
 
+## 2024-04-25
+
+### `tsup`
+
+- `splitting` means if it should code-split common parts across 2 entrypoints (`true`/`undefined`), or just duplicate them (`false`)
+   - For React Context, it is important to have a single code, rather than duplicated
+- Instead of moving stuff from `dependencies` to `devDependencies`, we can also mark a package via `noExternal: ['bundle-this-package']`
+- Type portability means, all types used in all exported code are exported as well
+   - If there are types that we don't want to export (internal/private), we should rewrite the type in the exported code so we cut the connection there
+- `dts: true` seems not checking type portability, but `experimentalDts: true` do check
+- `experimentalDts` or `@microsoft/api-extractor` requires the `tsconfig.json` to put on the project root, than next to the code inside `/src/`
+- Node.js don't know about `package.json/module` at all, it is a de facto standard used by Webpack et al. only
+
+### Being `create-react-app`-friendly
+
+- Don't use `.cjs`/`.mjs` file extension, use `.js` only
+   - Otherwise, Webpack in `create-react-app` will consider it an asset file similar to `.gif` or `.txt`, i.e. returning a string and copied to the asset folder
+   - `package.json/type` should be the module format of the `.js` file referenced by the `package.json/main` field
+
 ## 2024-04-14
 
 - CSS: `prefers-reduced-motion: reduce` does not stop GIF animation from playing
@@ -33,7 +52,7 @@ EEE, maybe: expected, exceeded, extraordinary.
    - `0.0.2` is not picked up by `npm install my-package@^0.0.1`
    - `0.0.1` -> `0.0.2` is considered a major bump, could introduce breaking changes
    - `0.0.1` can still be a very high quality build, but it has a tendency to introduce breaking changes in short future, i.e. unstable
-   - Unstable and production ready are two different metrics, they are independent of each other. A version can be both unstable and production ready
+   - Unstable and production ready are two different metrics, they are orthogonal of each other. A version can be both unstable and production ready
 - In some perspective:
    - `0.0.1`: "I will break your stuff on next release."
       - The product is in experimental phase
