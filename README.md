@@ -15,6 +15,12 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | Hardware     | Happy Hacking Keyboard      | [2023-12-24](#2023-12-24)                                                     |
 | Raspberry Pi | Pi-Hole                     | [2024-02-27](#2024-02-27) [2023-12](#2023-12)                                 |
 
+## 2024-05-01
+
+- Hoisted vs. non-hoisted
+   - In non-hoisted, some packages may bring another version of production package directly under root `/node_modules` as transient
+   - The "wrong" version will become more visible and could be mistook by esbuild or Webpack
+
 ## 2024-04-25
 
 ### `tsup`
