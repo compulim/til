@@ -15,6 +15,29 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | Hardware     | Happy Hacking Keyboard      | [2023-12-24](#2023-12-24)                                                     |
 | Raspberry Pi | Pi-Hole                     | [2024-02-27](#2024-02-27) [2023-12](#2023-12)                                 |
 
+## 2024-05-16
+
+### React performance
+
+The following is less performant than the latter.
+
+```diff
+  const MyComponent = memo(...);
+  const App = ({ children }) => (
+    <MyComponent>
+-     <div>{children}<div>
++     {useMemo(() => <div>{children}<div>, [children])}
+    </MyComponent>
+  );
+```
+
+This is because the `children` props change on every re-render.
+
+```diff
+- <MyComponent children={<div>{children}</div>} />
++ <MyComponent children={useMemo(() => <div>{children}</div>, [children])} />
+```
+
 ## 2024-05-01
 
 - Hoisted vs. non-hoisted
