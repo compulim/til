@@ -15,6 +15,13 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | Hardware     | Happy Hacking Keyboard      | [2023-12-24](#2023-12-24)                                                     |
 | Raspberry Pi | Pi-Hole                     | [2024-02-27](#2024-02-27) [2023-12](#2023-12)                                 |
 
+## 2024-06-01
+
+- tsup IIFE
+  - Will emit `var globalName = (() => { ... });`, not exactly UMD but close
+  - Will `noExternal: '*'` as IIFE cannot load other deps via require/import
+  - Need `platform: 'browser' to load "browser" conditions
+
 ## 2024-05-16
 
 ### React performance
