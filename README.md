@@ -19,7 +19,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 - tsup IIFE
   - Will emit `var globalName = (() => { ... });`, not exactly UMD but close
-  - Will `noExternal: '*'` as IIFE cannot load other deps via require/import
+  - Ignore `external` and will bundle everything because IIFE cannot load other deps via require/import
   - Need `platform: 'browser' to load "browser" conditions
 
 ## 2024-05-16
