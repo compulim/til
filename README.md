@@ -15,6 +15,21 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | Hardware     | Happy Hacking Keyboard      | [2023-12-24](#2023-12-24)                                                     |
 | Raspberry Pi | Pi-Hole                     | [2024-02-27](#2024-02-27) [2023-12](#2023-12)                                 |
 
+## 2024-06-25
+
+- View webcam (UVC) on Raspberry Pi, so it "converts" USB-C webcam into HDMI signal
+   - `sudo apt-get install ffmpeg vlc xinit`
+   - `v4l2-ctl --list-formats-ext` to see what resolution/chroma it support
+   - VLC: `cvlc v4l2:///dev/video0:chroma=H264:width=1920:height=1080` as 1920x1080 with h.264 "chroma"
+   - ffplay: `ffplay /dev/video0 -f v4l2 -input_format h264 -video_size 1920x1080 -vcodec h264_v4l2m2m`
+      - This is decoded via Raspberry Pi hardware decoder (`h264_v4l2m2m`)
+- Each webcam has different resolution/chroma, for example
+   - Razer Kiyo Pro output 1920x1080 of h.264 or MJPEG, or 640x360 as YUYV (4:2:2) or NV12 (4:2:0)
+   - Atem Mini output 1920x1080 of MJPEG
+   - Elgato HD60 X output 1280x720 YUYV (4:2:2) or NV12 (4:2:0)
+      - HD and 4K profiles on Elgato HD60 X is not detected by `v4l2`
+- Both Windows and Android (Xperia 1 V) can use Elgato HD60 X with HD/4K signal of unknown chroma, seems limitation on `v4l2` instead of proprietary chroma/codec
+
 ## 2024-06-01
 
 - tsup IIFE
