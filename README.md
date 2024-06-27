@@ -22,11 +22,11 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 ### Play Elgato HD60 X on a Raspberry Pi
 
-Elgato HD60 X is using standard 1920x1080 YUYV (4:2:2) so it is supported by `v4l2` without any extra drivers. Tested to work under Raspberry Pi Lite OS (Bookworm).
+Elgato HD60 X is using standard 1920x1080 YUYV (4:2:2) and NV12 (4:2:0), so it is supported by `v4l2` without any extra drivers. Tested to work under Raspberry Pi Lite OS (Bookworm) with `sudo apt-get install xinit vlc`.
 
-This is more-or-less *convert* UVC into HDMI. Using 1920x1080 (HDMI) to output to ATEM Mini Pro, should be good for 3840x2160 (4K). So I can play Xbox in 4K while streaming RTMP via ATEM Mini Pro at HD, turning Elgato HD60 X and Raspberry Pi 4 essentially a HDMI splitter.
+This is more-or-less UVC-to-HDMI converter. Using 1920x1080 (HD) to output to ATEM Mini Pro, should be good for 3840x2160 (4K) as well. So I can play Xbox in 4K while streaming RTMP via ATEM Mini Pro at HD. Essentially bundling Elgato HD60 X and Raspberry Pi 4 together as a HDMI downscalable splitter.
 
-Total latency from Xbox Series X -> Elgato HD60 X -> Raspberry Pi 4 -> ATEM Mini Pro -> RTMP server -> OBS is about 500-1000 ms. Believe RTMP is the biggest factor.
+Total latency from Xbox Series X -> Elgato HD60 X -> Raspberry Pi 4 -> ATEM Mini Pro -> RTMP server -> OBS is about 0.5-1 seconds. RTMP is the biggest factor.
 
 Put this under `crontab` with `@reboot /home/pi/playback.sh`.
 
