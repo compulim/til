@@ -20,6 +20,14 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 - If a HD/4K UVC is connected via USB 2.0, it will not announce availability of 1920x1080 YUV2 and formats that requires bandwidth of USB 3.1
 - VLC is better at controlling audio buffering than ffmpeg/ffplay
 
+### Play Elgato HD60 X on a Raspberry Pi
+
+Elgato HD60 X is using standard 1920x1080 YUYV (4:2:2) so it is supported by `v4l2` without any extra drivers. Tested to work under Raspberry Pi Lite OS (Bookworm).
+
+This is more-or-less *convert* UVC into HDMI. Using 1920x1080 (HDMI) to output to ATEM Mini Pro, should be good for 3840x2160 (4K). So I can play Xbox in 4K while streaming RTMP via ATEM Mini Pro at HD, turning Elgato HD60 X and Raspberry Pi 4 essentially a HDMI splitter.
+
+Put this under `crontab` with `@reboot /home/pi/playback.sh`.
+
 ```sh
 cvlc \
   v4l2:///dev/video0:width=1920:height=1080:chroma=YUYV &
