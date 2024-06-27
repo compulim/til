@@ -26,6 +26,8 @@ Elgato HD60 X is using standard 1920x1080 YUYV (4:2:2) so it is supported by `v4
 
 This is more-or-less *convert* UVC into HDMI. Using 1920x1080 (HDMI) to output to ATEM Mini Pro, should be good for 3840x2160 (4K). So I can play Xbox in 4K while streaming RTMP via ATEM Mini Pro at HD, turning Elgato HD60 X and Raspberry Pi 4 essentially a HDMI splitter.
 
+Total latency from Xbox Series X -> Elgato HD60 X -> Raspberry Pi 4 -> ATEM Mini Pro -> RTMP server -> OBS is about 500-1000 ms. Believe RTMP is the biggest factor.
+
 Put this under `crontab` with `@reboot /home/pi/playback.sh`.
 
 ```sh
@@ -49,7 +51,7 @@ cvlc \
       - This is decoded via Raspberry Pi hardware decoder (`h264_v4l2m2m`)
 - Each webcam has different resolution/chroma, for example
    - Razer Kiyo Pro output 1920x1080 of h.264 or MJPEG, or 640x360 as YUYV (4:2:2) or NV12 (4:2:0)
-   - Atem Mini output 1920x1080 of MJPEG
+   - ATEM Mini output 1920x1080 of MJPEG
    - Elgato HD60 X output 1280x720 YUYV (4:2:2) or NV12 (4:2:0)
       - ~HD and 4K profiles on Elgato HD60 X is not detected by `v4l2`~ (This is because using a USB 2.0 cable)
 - Both Windows and Android (Xperia 1 V) can use Elgato HD60 X with HD/4K signal of unknown chroma, seems limitation on `v4l2` instead of proprietary chroma/codec
