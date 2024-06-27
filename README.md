@@ -15,6 +15,22 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | Hardware     | Happy Hacking Keyboard      | [2023-12-24](#2023-12-24)                                                     |
 | Raspberry Pi | Pi-Hole                     | [2024-02-27](#2024-02-27) [2023-12](#2023-12)                                 |
 
+## 2024-06-26
+
+- If a HD/4K UVC is connected via USB 2.0, it will not announce availability of 1920x1080 YUV2 and formats that requires bandwidth of USB 3.1
+- VLC is better at controlling audio buffering than ffmpeg/ffplay
+
+```sh
+cvlc \
+  v4l2:///dev/video0:width=1920:height=1080:chroma=YUYV &
+
+cvlc \
+  --audio-desync=12 \
+  -A alsa \
+  --alsa-audio-device sysdefault:CARD=vc4hdmi0 \
+  alsa://hw:CARD=X,DEV=0
+``` 
+
 ## 2024-06-25
 
 - View webcam (UVC) on Raspberry Pi, so it "converts" USB-C webcam into HDMI signal
@@ -27,7 +43,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
    - Razer Kiyo Pro output 1920x1080 of h.264 or MJPEG, or 640x360 as YUYV (4:2:2) or NV12 (4:2:0)
    - Atem Mini output 1920x1080 of MJPEG
    - Elgato HD60 X output 1280x720 YUYV (4:2:2) or NV12 (4:2:0)
-      - HD and 4K profiles on Elgato HD60 X is not detected by `v4l2`
+      - ~HD and 4K profiles on Elgato HD60 X is not detected by `v4l2`~ (This is because using a USB 2.0 cable)
 - Both Windows and Android (Xperia 1 V) can use Elgato HD60 X with HD/4K signal of unknown chroma, seems limitation on `v4l2` instead of proprietary chroma/codec
 
 ## 2024-06-01
