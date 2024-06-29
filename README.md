@@ -15,6 +15,34 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | Hardware     | Happy Hacking Keyboard      | [2023-12-24](#2023-12-24)                                                     |
 | Raspberry Pi | Pi-Hole                     | [2024-02-27](#2024-02-27) [2023-12](#2023-12)                                 |
 
+## 2024-06-29
+
+### Jest to mocha
+
+```sh
+npm install mocha sinon --save-dev
+```
+
+```diff
++ import { expect } from 'expect';
++ import { fake } from 'sinon';
+
+- test('should work', () => {
++ it('should work', () => {
+
+-   const fn = jest.fn();
++   const fn = fake(() => {});
+
+    fn(1);
+
+-   expect(fn).toHaveBeenCalledTimes(1);
++   expect(fn).toHaveProperty('callCount', 1);
+
+-   expect(fn).toHaveBeenCalledNthWith(1, 1);
++   expect(fn.getCall(0)).toHaveProperty('args', [1]);
+  });
+```
+
 ## 2024-06-26
 
 - If a HD/4K UVC is connected via USB 2.0, it will not announce availability of 1920x1080 YUV2 and formats that requires bandwidth of USB 3.1
