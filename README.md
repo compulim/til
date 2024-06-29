@@ -20,7 +20,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 ### Jest to mocha
 
 ```sh
-npm install mocha sinon --save-dev
+npm install expect mocha sinon --save-dev
 ```
 
 ```diff
