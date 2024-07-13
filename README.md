@@ -9,11 +9,39 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | Azure        | Azure Container Apps        | [2024-01-27](#2024-01-27)                                                     |
 | Azure        | Azure Cosmos DB Core        | [2023-12-24](#2023-12-24) [2023-12-26](#2023-12-26) [2024-01-07](#2024-01-07) |
 | Azure        | Azure Functions             | [2023-12-25](#2023-12-25) [2023-12-26](#2023-12-26) [2024-01-08](#2024-01-08) |
+| Azure        | Azure Managed Identity      | [2024-07-13](#2024-07-13)                                                     |
 | JavaScript   | Iterable/iterator/generator | [2024-01-22](#2024-01-22)                                                     |
 | JavaScript   | Valibot                     | [2024-01-10](#2024-01-10)                                                     |
 | React        | Fluent UI                   | [2023-12-25](#2023-12-25)                                                     |
 | Hardware     | Happy Hacking Keyboard      | [2023-12-24](#2023-12-24)                                                     |
 | Raspberry Pi | Pi-Hole                     | [2024-02-27](#2024-02-27) [2023-12](#2023-12)                                 |
+
+## 2024-07-13
+
+### Azure Managed Identity
+
+- Managed Identity is a resource running under resource group, similar to App Registrations but running under directory
+   - Easier to clean up
+- 2 ways to authenticate the running code as managed identity: federated identity or running under Azure (with identity assigned)
+- Producing token: One resource (say, Web Apps) can be operated under 1+ identities. Which identity to use to talk can be selected.
+   - Usually, an HTTP token server on localhost:12345 will be able to generate token for code that run under Azure
+   - Different service use different implementation token server
+   - Use `new ManagedIdentityCredential({ clientId: 'or process.env.AZURE_CLIENT_ID' }).getToken('https://vault.azure.net')`
+      - https://vault.azure.net is the scope
+      - A single scope must be set, otherwise, it will conside it's multiple scopes and getting the token will fail
+- Consuming token: varies from service to service
+    - Computer Vision use `Authorization: Bearer eyJ`
+    - Speech SDK use `Authorization: Bearer aad#/subscription/...#eyJ`
+
+#### Token server implementation
+
+```
+wget --header "x-identity-header: $IDENTITY_HEADER" $IDENTITY_ENDPOINT?resource=https://vault.azure.net&api-version=2019-08-01
+
+GET /MSI/token?resource=https://vault.azure.net&api-version=2019-08-01 HTTP/1.1
+Host: localhost:4141
+X-IDENTITY-HEADER: 12345678-1234-5678-abcd-12345678abcd
+```
 
 ## 2024-06-29
 
