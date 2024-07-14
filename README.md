@@ -43,6 +43,8 @@ Host: localhost:4141
 X-IDENTITY-HEADER: 12345678-1234-5678-abcd-12345678abcd
 ```
 
+`resource` means scope. For example, Speech Services scope is https://cognitiveservices.azure.com. This is not OIDC, nothing at https://vault.azure.net/.well-known/openid-configuration.
+
 ## 2024-06-29
 
 ### Jest to mocha
