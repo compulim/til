@@ -36,6 +36,9 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 #### Token server implementation
 
 ```
+export IDENTITY_ENDPOINT=http://localhost:4141/MSI/token
+export IDENTITY_HEADER=12345678-1234-5678-abcd-12345678abcd
+
 wget --header "x-identity-header: $IDENTITY_HEADER" $IDENTITY_ENDPOINT?resource=https://vault.azure.net&api-version=2019-08-01
 
 GET /MSI/token?resource=https://vault.azure.net&api-version=2019-08-01 HTTP/1.1
