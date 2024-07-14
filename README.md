@@ -33,7 +33,9 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
     - Computer Vision use `Authorization: Bearer eyJ`
     - Speech SDK use `Authorization: Bearer aad#/subscription/...#eyJ`
 
-#### Token server implementation
+#### Token server
+
+Each Azure service have their own similar implementation of token server and is only accessible locally on the same box.
 
 ```
 export IDENTITY_ENDPOINT=http://localhost:4141/MSI/token
