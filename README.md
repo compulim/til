@@ -16,6 +16,22 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | Hardware     | Happy Hacking Keyboard      | [2023-12-24](#2023-12-24)                                                     |
 | Raspberry Pi | Pi-Hole                     | [2024-02-27](#2024-02-27) [2023-12](#2023-12)                                 |
 
+## 2024-07-19
+
+### Using P-in-P as widgets
+
+- `<video>` is currently the only way to do P-in-P
+- Steps:
+   1. Create `<canvas>`, no need to attach to DOM
+   1. `videoElement.muted = true` to allow programmatically play
+   1. `videoElement.srcObject = canvasElement.captureStream()` to play `<canvas>` in the `<video>` at zero FPS (on-demand)
+   1. Draw on canvas
+   1. [`MediaStream.getVideoTracks()[0].requestFrame()`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasCaptureMediaStreamTrack/requestFrame) to capture `<canvas>` into `<video>`
+   1. `await videoElement.play()` to start playing the video again
+   1. On `videoElement.timeUpdate` event, call `videoElement.pause()` to pause immediately
+      - This allows browser/device to go to sleep
+   1. On `click` event, call `videoElement.requestPictureInPicture()`, P-in-P requires gesture
+
 ## 2024-07-13
 
 ### Azure Managed Identity
@@ -102,7 +118,7 @@ cvlc \
   -A alsa \
   --alsa-audio-device sysdefault:CARD=vc4hdmi0 \
   alsa://hw:CARD=X,DEV=0
-``` 
+```
 
 ## 2024-06-25
 
