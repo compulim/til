@@ -16,6 +16,13 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | Hardware     | Happy Hacking Keyboard      | [2023-12-24](#2023-12-24)                                                     |
 | Raspberry Pi | Pi-Hole                     | [2024-02-27](#2024-02-27) [2023-12](#2023-12)                                 |
 
+## 2024-08-22
+
+- Imperative function is "what you would do"
+   - `while (speed < 60) { accelerate(); }`
+- Declarative function is "what you want"
+   - `cruiseControl(60);`
+
 ## 2024-07-19
 
 ### Using P-in-P as widgets
