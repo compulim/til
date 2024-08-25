@@ -18,7 +18,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 ## 2024-08-25
 
-- `<input type="hidden">` will not participate in Constraint Validation
+- `<input type="hidden">` will not participate in [HTML Constraint Validation](https://developer.mozilla.org/en-US/docs/Web/HTML/Constraint_validation)
    - Calling `HTMLInputElement.setCustomValidity('Some error')` will not fail `HTMLFormElement.checkValidity()`
 
 ## 2024-08-22
