@@ -16,6 +16,12 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | Hardware     | Happy Hacking Keyboard      | [2023-12-24](#2023-12-24)                                                     |
 | Raspberry Pi | Pi-Hole                     | [2024-02-27](#2024-02-27) [2023-12](#2023-12)                                 |
 
+## 2024-10-24
+
+- `markdown-it` vs. `micromark`, https://github.com/microsoft/BotFramework-WebChat/pull/5330
+- `micromark` is more like a SAX pipeline
+   - We can't parse Markdown via `mdast` into AST and render it via `micromark` because `micromark` is SAX and not AST
+
 ## 2024-08-25
 
 - `<input type="hidden">` will not participate in [HTML Constraint Validation](https://developer.mozilla.org/en-US/docs/Web/HTML/Constraint_validation)
