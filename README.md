@@ -16,6 +16,46 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | Hardware     | Happy Hacking Keyboard      | [2023-12-24](#2023-12-24)                                                     |
 | Raspberry Pi | Pi-Hole                     | [2024-02-27](#2024-02-27) [2023-12](#2023-12)                                 |
 
+## 2024-11-07
+
+### Web Components
+
+Template of `MyElement.ts`:
+
+```ts
+export const observedAttributes = Object.freeze(['data-value']); // Used by HTML sanitizer
+export const tagName = 'my-tag-name'; // Used by HTML sanitizer
+
+type ObservedAttribute = IterableElement<typeof observedAttributes>;
+
+class MyElement extends HTMLElement {
+  static observedAttributes: readonly string[] = observedAttributes;
+}
+
+let defined = false;
+
+export function defineMyElement() {
+  if (!defined) {
+    customElements.define(tagName, MyElement);
+    defined = true;
+  }
+}
+
+// Type-friendly way to create the element.
+export function createMyElement(
+  ownerDocument: Document,
+  attributeInitDict: Readonly<{ [K in ObservedAttribute]?: string | undefined; }>
+): MyElement {
+  defineMyElement();
+
+  const myElement = ownerDocument.createElement(tagName) as MyElement;
+
+  myElement.dataset['value'] = attributeInitDict['data-value'];
+
+  return myElement;
+}
+```
+
 ## 2024-10-24
 
 - `markdown-it` vs. `micromark`, https://github.com/microsoft/BotFramework-WebChat/pull/5330
