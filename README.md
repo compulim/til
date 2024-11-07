@@ -44,13 +44,13 @@ export function defineMyElement() {
 // Type-friendly way to create the element.
 export function createMyElement(
   ownerDocument: Document,
-  attributeInitDict: Readonly<{ [K in ObservedAttribute]?: string | undefined; }>
+  attributesInitDict: Readonly<{ [K in ObservedAttribute]?: string | undefined; }>
 ): MyElement {
   defineMyElement();
 
   const myElement = ownerDocument.createElement(tagName) as MyElement;
 
-  myElement.dataset['value'] = attributeInitDict['data-value'];
+  myElement.dataset['value'] = attributesInitDict['data-value'];
 
   return myElement;
 }
