@@ -23,8 +23,8 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 Template of `MyElement.ts`:
 
 ```ts
-export const observedAttributes = Object.freeze(['data-value']); // Used by HTML sanitizer
-export const tagName = 'my-tag-name'; // Used by HTML sanitizer
+export const observedAttributes = Object.freeze(['data-value']); // For HTML sanitizer
+export const tagName = 'my-tag-name'; // For HTML sanitizer
 
 type ObservedAttribute = IterableElement<typeof observedAttributes>;
 
