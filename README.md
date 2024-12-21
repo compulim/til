@@ -10,11 +10,31 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | Azure        | Azure Cosmos DB Core        | [2023-12-24](#2023-12-24) [2023-12-26](#2023-12-26) [2024-01-07](#2024-01-07) |
 | Azure        | Azure Functions             | [2023-12-25](#2023-12-25) [2023-12-26](#2023-12-26) [2024-01-08](#2024-01-08) |
 | Azure        | Azure Managed Identity      | [2024-07-13](#2024-07-13)                                                     |
+| Clover       | Rest API                    | [2024-12-21](#2024-12-21)                                                     |
 | JavaScript   | Iterable/iterator/generator | [2024-01-22](#2024-01-22)                                                     |
 | JavaScript   | Valibot                     | [2024-01-10](#2024-01-10)                                                     |
+| Raspberry Pi | Pi-Hole                     | [2024-02-27](#2024-02-27) [2023-12](#2023-12)                                 |
 | React        | Fluent UI                   | [2023-12-25](#2023-12-25)                                                     |
 | Hardware     | Happy Hacking Keyboard      | [2023-12-24](#2023-12-24)                                                     |
-| Raspberry Pi | Pi-Hole                     | [2024-02-27](#2024-02-27) [2023-12](#2023-12)                                 |
+
+## 2024-12-21
+
+### Clover
+
+- `orderBy=modifiedTime+ASC` is not working properly
+   - It returns data in ascending order, but not from day 0, but some random days
+   - However, descending is working properly
+- Pagination (`limit`/`offset`) only works for 90 days of data
+   - It will return end of data after 90 days
+   - Use `modifiedTime` for pagination instead, i.e. `filter=modifiedTime%3C%3D1734773188000`
+- Pagination (`limit`/`offset`) is too naive to use with real-time data
+   - Page overlap logic is required when data is expected to update in real-time
+- Customer table does not have `modifiedTime` field despite there is a `metadata.modifiedTime` field
+- Product item table will update frequently because every order will cause item stock change
+- Webhooks requires OAuth and probably publishing app publicly
+   - Per documentation, webhooks may not be very reliable
+- If server is too busy, it may simply kill the socket connection instead of returning 429
+- For HTTP 429, despite throttling is 16 requests per second for token access, the quota does not reset frequently
 
 ## 2024-11-07
 
