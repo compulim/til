@@ -30,7 +30,12 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 - Pagination (`limit`/`offset`) is too naive to use with real-time data
    - Page overlap logic is required when data is expected to update in real-time
 - Customer table does not have `modifiedTime` field despite there is a `metadata.modifiedTime` field
-- Product item table will update frequently because every order will cause item stock change
+   - Default seems to be order by `customerSince DESC`
+      - Order by `customerSince ASC` will sort it in ascending order
+      - Order by `modifiedTime DESC` will do nothing
+      - Order by `metadata.modifiedTime DESC` will throw HTTP 400
+   - Modifying a customer will not move its position
+- Product item table will update frequently because every order will change item stock
 - Webhooks requires OAuth and probably publishing app publicly
    - Per documentation, webhooks may not be very reliable
 - If server is too busy, it may simply kill the socket connection instead of returning 429
