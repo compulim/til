@@ -27,12 +27,12 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 - [`cosmium`](https://github.com/pikami/cosmium/) is an unofficial emulator written in Go
    - Patch operation support is limited to [RFC-6902](https://www.rfc-editor.org/rfc/rfc6902)
       - No `set` operation support, [etc.](https://learn.microsoft.com/en-us/azure/cosmos-db/partial-document-update#supported-operations)
-- Both official emulator and cosmium does not work with bracket notation with parameter
+- Bracket notation with parameter support is scarce
+   - `{ parameters: [{ name: '@name', value: 'some-name' }], query: 'SELECT * FROM c WHERE c.bag[@name] = 1' }`
    - Works in real CosmosDB though
-   - `parameters: [{ name: '@name', value: 'some-name' }]`
-   - `query: 'SELECT * FROM c WHERE c.bag[@name] = 1'`
-   - Official emulator throws error
-   - `cosmium` returns nothing
+   - Does not work with official emulator and cosmium
+      - Official emulator throws error
+      - `cosmium` returns nothing
 
 ## 2024-12-21
 
