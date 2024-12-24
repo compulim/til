@@ -17,6 +17,23 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | React        | Fluent UI                   | [2023-12-25](#2023-12-25)                                                     |
 | Hardware     | Happy Hacking Keyboard      | [2023-12-24](#2023-12-24)                                                     |
 
+## 2024-12-24
+
+### Azure CosmosDB
+
+- Official emulator does not run on ARM64 yet
+   - Linux and ARM64 is in preview, https://learn.microsoft.com/en-us/azure/cosmos-db/emulator-linux
+   - The image is huge (> 2 GB)
+- [`cosmium`](https://github.com/pikami/cosmium/) is an unofficial emulator written in Go
+   - Patch operation support is limited to [RFC-6902](https://www.rfc-editor.org/rfc/rfc6902)
+      - No `set` operation support, [etc.](https://learn.microsoft.com/en-us/azure/cosmos-db/partial-document-update#supported-operations)
+- Both official emulator and cosmium does not work with bracket notation with parameter
+   - Works in real CosmosDB though
+   - `parameters: [{ name: '@name', value: 'some-name' }]`
+   - `query: 'SELECT * FROM c WHERE c.bag[@name] = 1'`
+   - Official emulator throws error
+   - `cosmium` returns nothing
+
 ## 2024-12-21
 
 ### Clover
