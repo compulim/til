@@ -25,15 +25,26 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
    - Linux and ARM64 is in preview, https://learn.microsoft.com/en-us/azure/cosmos-db/emulator-linux
    - The image is huge (> 2 GB)
    - `EXISTS` is not implemented
-- [`cosmium`](https://github.com/pikami/cosmium/) is an unofficial emulator written in Go
+- [cosmium](https://github.com/pikami/cosmium/) is an unofficial emulator written in Go
    - Patch operation support is limited to [RFC-6902](https://www.rfc-editor.org/rfc/rfc6902)
       - No `set` operation support, [etc.](https://learn.microsoft.com/en-us/azure/cosmos-db/partial-document-update#supported-operations)
-- Bracket notation with parameter support is scarce
-   - `{ parameters: [{ name: '@name', value: 'some-name' }], query: 'SELECT * FROM c WHERE c.bag[@name] = 1' }`
-   - Works in real CosmosDB though
-   - Does not work with official emulator and cosmium
-      - Official emulator throws error
-      - `cosmium` returns nothing
+
+#### Quirks
+
+| Scenario                         | Real | Official emulator  | cosmium         |
+| -------------------------------- | ---- | ------------------ | --------------- |
+| Bracket notation                 | ✅   | ✅                 | ✅              |
+| Bracket notation with parameter  | ✅   | ❌ Syntax error    | ❌ Return empty |
+| `ARRAY_CONTAINS`                 | ✅   | ✅                 | ❌ Return empty |
+| `ARRAY_CONTAINS` with parameter  | ✅   | ❌ Syntax error    | ❌ Return empty |
+| `EXISTS` subquery                | ✅   | ❌ Not implemented | ✅              |
+| `EXISTS` subquery with parameter | ✅   | ❌ Not implemented | ✅              |
+
+Code snippets:
+
+- Bracket notation: `WHERE c.map[@name] = @value`
+- `ARRAY_CONTAINS`: `WHERE ARRAY_CONTAINS(c.array, @value)`
+- `EXISTS`: `WHERE EXISTS (SELECT p FROM p IN c.array WHERE p = @value)`
 
 ## 2024-12-21
 
