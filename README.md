@@ -24,6 +24,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 - Official emulator does not run on ARM64 yet
    - Linux and ARM64 is in preview, https://learn.microsoft.com/en-us/azure/cosmos-db/emulator-linux
    - The image is huge (> 2 GB)
+   - `EXISTS` is not implemented
 - [`cosmium`](https://github.com/pikami/cosmium/) is an unofficial emulator written in Go
    - Patch operation support is limited to [RFC-6902](https://www.rfc-editor.org/rfc/rfc6902)
       - No `set` operation support, [etc.](https://learn.microsoft.com/en-us/azure/cosmos-db/partial-document-update#supported-operations)
