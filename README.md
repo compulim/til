@@ -39,6 +39,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | `ARRAY_CONTAINS` with parameter  | ✅   | ❌ Syntax error    | ❌ Return empty |
 | `EXISTS` subquery                | ✅   | ❌ Not implemented | ✅              |
 | `EXISTS` subquery with parameter | ✅   | ❌ Not implemented | ✅              |
+| `batch()`                        | ✅   | ?                  | ❌ Emulator-side process error |
 | `bulk()`                         | ✅   | ?                  | ❌ Emulator-side process error |
 
 Code snippets:
