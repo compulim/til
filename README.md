@@ -17,6 +17,14 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | React        | Fluent UI                   | [2023-12-25](#2023-12-25)                                                     |
 | Hardware     | Happy Hacking Keyboard      | [2023-12-24](#2023-12-24)                                                     |
 
+## 2024-12-30
+
+- Bundling in monorepo
+   - Monorepo with hoisted dependencies means most `/node_modules/` are located at the root of the project
+   - Deploying a package to run in container means the root `/node_modules/` need to be packed
+      - The root `/node_modules/` may contains dependencies used by other packages
+   - Bundling helps picking the minimal dependencies need to be packaged to run
+
 ## 2024-12-24
 
 ### Azure CosmosDB
