@@ -17,6 +17,15 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | React        | Fluent UI                   | [2023-12-25](#2023-12-25)                                                     |
 | Hardware     | Happy Hacking Keyboard      | [2023-12-24](#2023-12-24)                                                     |
 
+## 2025-02-13
+
+- Testing in browser
+   - Using `jest.fn` and `jest.spyOn` in browser means `import { fn, spyOn } from 'jest-mock'` under `<script type="module">`
+   - [Import map](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap) is like a much simplified version of `package.json`
+- To efficiently spy a function and setup expectation
+   - Spy: `spyOn(console, 'log')`, no need to assign to a constant
+   - Expectation: `expect(console.log).toHaveBeenCalledTimes(1)`
+
 ## 2024-12-30
 
 - Bundling in monorepo
