@@ -27,7 +27,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 sudo apt install cups
 ```
 
-Then, navigate to https://<hostname>:631/ to add a printer.
+Then, navigate to `https://<hostname>:631/` to add a printer.
 
 - Android
    - Install [Mopria app](https://mopria.org/print-from-android)
