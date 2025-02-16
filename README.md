@@ -31,9 +31,9 @@ Then, navigate to https://<hostname>:631/ to add a printer.
 
 - Android
    - Install [Mopria app](https://mopria.org/print-from-android)
-   - Add printer, hostname is <hostname>:631/printers/Your_Printer_Name
+   - Add printer, hostname is `<hostname>:631/printers/Your_Printer_Name` (no `http://`)
 - Windows
-   - Add IPP printer with URL of http://<hostname>:631/printers/Your_Printer_Name
+   - Add IPP printer with URL of `http://<hostname>:631/printers/Your_Printer_Name`
 
 ### Wireguard client in Raspberry Pi (Bookworm)
 
