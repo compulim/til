@@ -46,7 +46,7 @@ sudo wg-quick up wg0
 sudo systemctl enable --now wg-quick@wg0
 ```
 
-### Wi-Fi configuration in Raspberry Pi (Bookwork)
+### Wi-Fi configuration in Raspberry Pi (Bookworm)
 
 Run `nmtui` in terminal.
 
