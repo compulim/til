@@ -13,9 +13,42 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | Clover       | Rest API                    | [2024-12-21](#2024-12-21)                                                     |
 | JavaScript   | Iterable/iterator/generator | [2024-01-22](#2024-01-22)                                                     |
 | JavaScript   | Valibot                     | [2024-01-10](#2024-01-10)                                                     |
+| Raspberry Pi | CUPS                        | [2025-02-15](#2025-02-15)                                                     |
 | Raspberry Pi | Pi-Hole                     | [2024-02-27](#2024-02-27) [2023-12](#2023-12)                                 |
+| Raspberry Pi | Wireguard                   | [2025-02-15](#2025-02-15)                                                     |
 | React        | Fluent UI                   | [2023-12-25](#2023-12-25)                                                     |
 | Hardware     | Happy Hacking Keyboard      | [2023-12-24](#2023-12-24)                                                     |
+
+## 2025-02-15
+
+### CUPS (Common Unix Printing System)
+
+```sh
+sudo apt install cups
+```
+
+Then, navigate to https://<hostname>:631/ to add a printer.
+
+- Android
+   - Install [Mopria app](https://mopria.org/print-from-android)
+   - Add printer, hostname is <hostname>:631/printers/Your_Printer_Name
+- Windows
+   - Add IPP printer with URL of http://<hostname>:631/printers/Your_Printer_Name
+
+### Wireguard client in Raspberry Pi (Bookworm)
+
+```sh
+sudo apt update
+sudo apt install wireguard
+sudo pico /etc/wireguard/wg0.conf
+# Add "PersistentKeepalive = 25" if the NAT router kills UDP too soon
+sudo wg-quick up wg0
+sudo systemctl enable --now wg-quick@wg0
+```
+
+### Wi-Fi configuration in Raspberry Pi (Bookwork)
+
+Run `nmtui` in terminal.
 
 ## 2025-02-13
 
