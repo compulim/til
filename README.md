@@ -24,10 +24,22 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 ### CUPS (Common Unix Printing System)
 
 ```sh
-sudo apt install cups
+sudo apt install cups printer-driver-gutenprint
+
+# Auto-start CUPS
+sudo systemctl enable --now cups.service
+
+# Enable admin
+sudo usermod -a -G lpadmin pi
+
+# Enable remote access
+sudo cupsctl --remote-any
+
+# Restart CUPS to save changes
+sudo systemctl restart cups
 ```
 
-Then, navigate to `https://<hostname>:631/` to add a printer.
+Then, navigate to `https://<hostname>:631/` to add a printer. Check "Share this printer".
 
 - Android
    - Install [Mopria app](https://mopria.org/print-from-android)
@@ -39,9 +51,14 @@ Then, navigate to `https://<hostname>:631/` to add a printer.
 
 ```sh
 sudo apt update
-sudo apt install wireguard
-sudo pico /etc/wireguard/wg0.conf
+
+# "openresolv" required as Raspberry Pi does not have "resolvconf".
+sudo apt install wireguard openresolv
+
+# Import wg0.conf.
 # Add "PersistentKeepalive = 25" if the NAT router kills UDP too soon
+sudo pico /etc/wireguard/wg0.conf
+
 sudo wg-quick up wg0
 sudo systemctl enable --now wg-quick@wg0
 ```
