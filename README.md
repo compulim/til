@@ -12,12 +12,23 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | Azure        | Azure Managed Identity      | [2024-07-13](#2024-07-13)                                                     |
 | Clover       | Rest API                    | [2024-12-21](#2024-12-21)                                                     |
 | JavaScript   | Iterable/iterator/generator | [2024-01-22](#2024-01-22)                                                     |
+| JavaScript   | ReadableStream              | [2025-03-29](#2025-03-29)                                                     |
 | JavaScript   | Valibot                     | [2024-01-10](#2024-01-10)                                                     |
 | Raspberry Pi | CUPS                        | [2025-02-15](#2025-02-15)                                                     |
 | Raspberry Pi | Pi-Hole                     | [2024-02-27](#2024-02-27) [2023-12](#2023-12)                                 |
 | Raspberry Pi | Wireguard                   | [2025-02-15](#2025-02-15)                                                     |
 | React        | Fluent UI                   | [2023-12-25](#2023-12-25)                                                     |
 | Hardware     | Happy Hacking Keyboard      | [2023-12-24](#2023-12-24)                                                     |
+
+## 2025-03-29
+
+### `ReadableStream`
+
+- To temporarily pause, call `reader.releaseLock()`
+- To signal stop, call `reader.cancel()`
+- With pending `reader.read()`
+   - `reader.releaseLock()` will rejects the `read()`
+   - `reader.cancel()` will resolves the `read()` with `undefined`
 
 ## 2025-02-15
 
