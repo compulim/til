@@ -16,9 +16,14 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | JavaScript   | Valibot                     | [2024-01-10](#2024-01-10)                                                     |
 | Raspberry Pi | CUPS                        | [2025-02-15](#2025-02-15)                                                     |
 | Raspberry Pi | Pi-Hole                     | [2024-02-27](#2024-02-27) [2023-12](#2023-12)                                 |
-| Raspberry Pi | Wireguard                   | [2025-02-15](#2025-02-15)                                                     |
+| Raspberry Pi | WireGuard                   | [2025-02-15](#2025-02-15) [2025-06-16](#2025-06-16)                           |
 | React        | Fluent UI                   | [2023-12-25](#2023-12-25)                                                     |
 | Hardware     | Happy Hacking Keyboard      | [2023-12-24](#2023-12-24)                                                     |
+
+## 2025-06-16
+
+- WireGuard need a good clock, and captive portal could block NTP (port 123) as they assume (without knowing that) most mobile devices have good clock
+- Raspberry Pi: Add `maxcpus=1` to `/boot/firmware/cmdline.txt` to disable cores
 
 ## 2025-03-29
 
