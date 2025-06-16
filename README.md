@@ -2,7 +2,8 @@
 
 Point form for speedy writing. 80% correct at the time of writing. Just remind myself what I did. Timestamp is not accurate as I may recall things and writing something I learn some time ago.
 
-## Table of contents
+<details>
+   <summary>Table of Contents</summary>
 
 | Area         | Product                     | Date                                                                          |
 | ------------ | --------------------------- | ----------------------------------------------------------------------------- |
@@ -19,6 +20,8 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | Raspberry Pi | WireGuard                   | [2025-02-15](#2025-02-15) [2025-06-16](#2025-06-16)                           |
 | React        | Fluent UI                   | [2023-12-25](#2023-12-25)                                                     |
 | Hardware     | Happy Hacking Keyboard      | [2023-12-24](#2023-12-24)                                                     |
+
+</details>
 
 ## 2025-06-16
 
