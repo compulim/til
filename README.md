@@ -13,6 +13,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | Azure        | Azure Managed Identity      | [2024-07-13](#2024-07-13)                                                     |
 | Clover       | Rest API                    | [2024-12-21](#2024-12-21)                                                     |
 | JavaScript   | Iterable/iterator/generator | [2024-01-22](#2024-01-22)                                                     |
+| JavaScript   | Node.js Test Runner         | [2025-07-20](#2025-07-20)                                                     |
 | JavaScript   | ReadableStream              | [2025-03-29](#2025-03-29)                                                     |
 | JavaScript   | Valibot                     | [2024-01-10](#2024-01-10)                                                     |
 | Raspberry Pi | CUPS                        | [2025-02-15](#2025-02-15)                                                     |
@@ -22,6 +23,19 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 | Hardware     | Happy Hacking Keyboard      | [2023-12-24](#2023-12-24)                                                     |
 
 </details>
+
+## 2025-07-20
+
+- Jest to Node.js Test Runner
+   - Doable
+      - Move from `jest.fn()` to `mock.fn()`
+         - Jest: `expect(fn).toHaveBeenCalledTimes(1)`
+         - Node.js: `expect(fn.mock.calls).toHaveProperty('length', 1)`
+         - Or write a `expect.extends` matcher
+      - Move from `jest.spyOn(console, 'error')` to `mock.method(console, 'error')`
+   - Not easily doable, didn't try
+      - Transform .jsx on-the-fly with `node --experimental-loader`
+         - See https://github.com/educandu/node-jsx-loader/blob/main/src/index.js
 
 ## 2025-06-16
 
