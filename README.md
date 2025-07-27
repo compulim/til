@@ -24,6 +24,13 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 </details>
 
+## 2025-07-27
+
+- Why Node.js Test Runner is not prime time yet?
+   - Node.js cannot natively transpile JSX
+   - React 16 does not using `import` statement but `require()`, forcing tests to be CommonJS
+      - However, source code is usually ES Modules, thus, need to skip tests for React 16
+
 ## 2025-07-20
 
 - Jest to Node.js Test Runner
