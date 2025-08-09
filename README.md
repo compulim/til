@@ -28,9 +28,11 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 ### Create HDR wallpaper (JPEG XR)
 
+> These instructions may not be 100% accurate on color space and gamma, use with care.
+
 1. DaVinci Resolve
    - Timeline color management: DaVinci YRGB Color Managed, color processing mode HDR, output color space HDR HLG
-   - Color add a final node: Color Space Transform (Rec.2020/Rec.2100 HLG -> sRGB/Rec.2100 ST2084)
+   - Color add a final node: Color Space Transform effect (Rec.2020/Rec.2100 HLG -> sRGB/Rec.2100 ST2084)
    - Deliver: TIFF, RGB 16-bit, color space tag Rec.2020, gamma tag Rec.2100 ST2084
 2. `ffmpeg -i davinci.tif -color_primaries bt2020 -color_trc smpte2084 krita.jxl -y`
    - Tag output with color space Rec.2020, transform function Rec.2100 ST2084 (a.k.a. HLG PQ)
