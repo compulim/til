@@ -47,6 +47,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
    - Tool + SDK is open source on Linux as [libjxr-tools](https://packages.debian.org/sid/libjxr-tools), but it's quite restrictive and not working most of the time
    - Another SDK is a Windows OS component called Windows Imaging Component (WIC)
    - Color space is assumed scRGB and gamma is assumed 1.0
+      - scRGB is mostly like sRGB but luminance value ranging from -0.5 to ~7.5, HDR ready
 - Windows Photos app supports HDR photos for both JPEG XR, JPEG XL, but HDR photos in TIFF and PNG will show in SDR, not HDR
 - Windows Photos can re-save any photos to JPEG XR, but only save as SDR
    - A 3P converter app using WIC seems behave the same way, only save as SDR
@@ -57,7 +58,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 - How to convert HDR photos to JPEG XR
    - Given HDR photo in JPEG XL format
       - If input is not JPEG XL, (e.g. PNG and TIFF from DaVinci Resolve), use ffmpeg to convert it into JPEG XL
-         - Must have proper color space (Rec.2020) and color transformation function (Rec.2100 ST2084 PQ)
+         - Must have proper color primaries (Rec.2020) and gamma (Rec.2100 ST2084 PQ)
          - Windows Photos should load the image in HDR
    - Use [Krita](https://krita.org/) to convert JPEG XL into TIFF
       - Possibly an image with 32-bit per pixel, a 128-bit RGBA floating point image
@@ -78,6 +79,34 @@ Gamma tag means, a conversion function from a number (luminance value) to an act
    - sRGB and Rec.709 is on the same color space
 - Rec.2020 is mostly for HDR, gamma is either HLG or PQ
    - Rec.2020 is on different/expanded color space
+
+### ffmpeg color primaries
+
+| `-color_primaries` | Description                 |
+| ------------------ | --------------------------- |
+| `bt709`            | Rec.709 (also same as sRGB) |
+| `bt2020`           | Rec.2020                    |
+| `smpte-st432`      | DCI-P3 (SMPTE-432)          |
+
+### ffmpeg color transfer characteristics
+
+| `-color_trc`   | Description                                |
+| -------------- | ------------------------------------------ |
+| `iec61966-2-1` | sRGB                                       |
+| `bt709`        | Rec.709                                    |
+| `arib-std-b67` | Rec.2020 HDR HLG                           |
+| `smpte2084`    | Rec.2020 HDR PQ (ST2084)                   |
+| `gamma26`      | Gamma 2.6 (also same as DCI-P3, SMPTE-428) |
+| `linear`       | Gamma 1.0                                  |
+
+### ffmpeg color matrix
+
+| `-colorspace` | Description                     |
+| ------------- | ------------------------------- |
+| `rgb`         | RGB (passthrough, for DCI-P3)   |
+| `bt709`       | Rec.709                         |
+| `bt2020_ncl`  | Rec.2020 Non-constant luminance |
+| `bt2020_cl`   | Rec.2020 Constant luminance     |
 
 ## 2025-07-27
 
