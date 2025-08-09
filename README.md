@@ -46,7 +46,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
    - Windows, Xbox, and DirectX are using it
    - Tool + SDK is open source on Linux as [libjxr-tools](https://packages.debian.org/sid/libjxr-tools), but it's quite restrictive and not working most of the time
    - Another SDK is a Windows OS component called Windows Imaging Component (WIC)
-   - Color space is assumed scRGB and gamma is assumed 1.0
+   - Color space is assumed scRGB and gamma is assumed 1.0 (linear)
       - scRGB is mostly like sRGB but luminance value ranging from -0.5 to ~7.5, HDR ready
 - Windows Photos app supports HDR photos for both JPEG XR, JPEG XL, but HDR photos in TIFF and PNG will show in SDR, not HDR
 - Windows Photos can re-save any photos to JPEG XR, but only save as SDR
@@ -58,7 +58,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 - How to convert HDR photos to JPEG XR
    - Given HDR photo in JPEG XL format
       - If input is not JPEG XL, (e.g. PNG and TIFF from DaVinci Resolve), use ffmpeg to convert it into JPEG XL
-         - Must have proper color primaries (Rec.2020) and gamma (Rec.2100 ST2084 PQ)
+         - Must have proper color primaries (Rec.2020) and transfer function (Rec.2100 ST2084 PQ)
          - Windows Photos should load the image in HDR
    - Use [Krita](https://krita.org/) to convert JPEG XL into TIFF
       - Possibly an image with 32-bit per pixel, a 128-bit RGBA floating point image
@@ -69,9 +69,11 @@ Read related from [Reddit](https://www.reddit.com/r/editing/comments/ovcisw/comm
 
 ### Color space
 
-Color space means, a conversion map from a series of number (RGB, YUV, CMYK) to an actual color (wavelength). 100% red, 0% green, 0% blue in sRGB and Rec.709 looks very similar, minus the luminance difference due to different gamma. But 100%/0%/0% in Rec.709 and Rec.2020 is a different red.
+> Color space means everything: color primaries, transfer function, white point, etc.
 
-Gamma tag means, a conversion function from a number (luminance value) to an actual brightness. RGB has no explicit luminance value, Y in YUV and K in CMYK is the luminance value.
+Color primaries is a conversion map from a series of number (RGB, YUV, CMYK) to an actual color (wavelength). 100% red, 0% green, 0% blue in sRGB and Rec.709 looks very similar, minus the luminance difference due to different transfer function. But 100%/0%/0% in Rec.709 and Rec.2020 is a different red.
+
+Transfer function is a function that convert a number (luminance value) to an actual brightness. It is usually using gamma function but HDR is HLG/PQ. RGB has no explicit luminance value, Y in YUV and K in CMYK is the luminance value.
 
 - sRGB is mostly for computers, effective gamma of 2.2
    - Darker part is 1.0 (linear), brighter part is 2.4
