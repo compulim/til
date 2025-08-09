@@ -36,7 +36,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
    - Tag output with color space Rec.2020, transform function Rec.2100 ST2084 (a.k.a. HLG PQ)
 3. Open Krita, save as TIFF, check "Store alpha channel (transparency)"
    - Will save as TIFF 128-bit
-4. `JxrEncApp -i darker5.tif -o darker5.jxr -q 1`
+4. `JxrEncApp -i krita.tif -o final.jxr -q 1`
 
 ## 2025-07-27
 
