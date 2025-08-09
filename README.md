@@ -38,6 +38,8 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
    - Will save as TIFF 128-bit
 4. `JxrEncApp -i krita.tif -o final.jxr -q 1`
 
+Read related from [Reddit](https://www.reddit.com/r/editing/comments/ovcisw/comment/k1660hv/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button).
+
 ## 2025-07-27
 
 - Why Node.js Test Runner is not prime time yet?
