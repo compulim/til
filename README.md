@@ -110,7 +110,7 @@ Transfer function is a function that convert a number (luminance value) to an ac
 | `bt2020_ncl`  | Rec.2020 Non-constant luminance |
 | `bt2020_cl`   | Rec.2020 Constant luminance     |
 
-## fmpeg color space
+## ffmpeg color space
 
 | Color space  | Arguments                                                                |
 | ------------ | ------------------------------------------------------------------------ |
