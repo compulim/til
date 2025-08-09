@@ -52,7 +52,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 - Windows Photos can re-save any photos to JPEG XR, but only save as SDR
    - A 3P converter app using WIC seems behave the same way, only save as SDR
 - ffmpeg is limited on TIFF supports over pixel formats
-   - SDR pixel formats (<= 8 bit) is generally good, but for HDR, seems only support one pixel format: rgb48
+   - SDR pixel formats (<= 8 bit) is generally good, but for HDR, seems only support few pixel formats: `rgb48le`, `rgba64le`
    - libjxr-tools accept quite a lot of pixel formats on HDR
    - However, ffmpeg and libjxr-tools don't overlap their support on pixel formats
 - How to convert HDR photos to JPEG XR
@@ -88,7 +88,7 @@ Transfer function is a function that convert a number (luminance value) to an ac
 | ------------------ | --------------------------- |
 | `bt709`            | Rec.709 (also same as sRGB) |
 | `bt2020`           | Rec.2020                    |
-| `smpte-st432`      | DCI-P3 (SMPTE-432)          |
+| `smpte432`         | DCI-P3 (SMPTE-432)          |
 
 ### ffmpeg color transfer characteristics
 
@@ -98,7 +98,7 @@ Transfer function is a function that convert a number (luminance value) to an ac
 | `bt709`        | Rec.709                                    |
 | `arib-std-b67` | Rec.2020 HDR HLG                           |
 | `smpte2084`    | Rec.2020 HDR PQ (ST2084)                   |
-| `gamma26`      | Gamma 2.6 (also same as DCI-P3, SMPTE-428) |
+| `smpte428`     | DCI-P3 (SMPTE-428, same as gamma 2.6)      |
 | `linear`       | Gamma 1.0                                  |
 
 ### ffmpeg color matrix
