@@ -29,7 +29,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 ### Create HDR wallpaper (JPEG XR)
 
 1. DaVinci Resolve
-   - Timeline color management: DaVinci YRGB Color Managed, color processing mode HDR, output color spaceHDR HLG
+   - Timeline color management: DaVinci YRGB Color Managed, color processing mode HDR, output color space HDR HLG
    - Color add a final node: Color Space Transform (Rec.2020/Rec.2100 HLG -> sRGB/Rec.2100 ST2084)
    - Deliver: TIFF, RGB 16-bit, color space tag Rec.2020, gamma tag Rec.2100 ST2084
 2. `ffmpeg -i davinci.tif -color_primaries bt2020 -color_trc smpte2084 krita.jxl -y`
@@ -37,6 +37,29 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 3. Open Krita, save as TIFF, check "Store alpha channel (transparency)"
    - Will save as TIFF 128-bit
 4. `JxrEncApp -i krita.tif -o final.jxr -q 1`
+
+My thinking:
+
+- JPEG XR rooted from Windows HD Photo
+   - Windows, Xbox, and DirectX are using it
+   - Tool + SDK is open source on Linux as [libjxr-tools](https://packages.debian.org/sid/libjxr-tools), but it's quite restrictive and not working most of the time
+   - Another SDK is a Windows OS component called Windows Imaging Component (WIC)
+   - Color space is assumed scRGB and gamma is assumed 1.0
+- Windows Photos app supports HDR photos for both JPEG XR, JPEG XL, but HDR photos in TIFF and PNG will show in SDR, not HDR
+- Windows Photos can re-save any photos to JPEG XR, but only save as SDR
+   - A 3P converter app using WIC seems behave the same way, only save as SDR
+- ffmpeg is limited on TIFF supports over pixel formats
+   - SDR pixel formats (<= 8 bit) is generally good, but for HDR, seems only support one pixel format: rgb48
+   - libjxr-tools accept quite a lot of pixel formats on HDR
+   - However, ffmpeg and libjxr-tools don't overlap their support on pixel formats
+- How to convert HDR photos to JPEG XR
+   - Given HDR photo in JPEG XL format
+      - If input is not JPEG XL, (e.g. PNG and TIFF from DaVinci Resolve), use ffmpeg to convert it into JPEG XL
+         - Must have proper color space (Rec.2020) and color transformation function (Rec.2100 ST2084 PQ), Windows Photos must open it in HDR
+   - Use [Krita](https://krita.org/) to convert JPEG XL into TIFF
+      - Possibly an image with 32-bit per pixel, a 128-bit RGBA floating point image
+      - ffmpeg do not support this file format
+   - Use libjxr-tools to convert the TIFF into JPEG XR
 
 Read related from [Reddit](https://www.reddit.com/r/editing/comments/ovcisw/comment/k1660hv/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button).
 
