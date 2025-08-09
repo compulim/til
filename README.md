@@ -38,7 +38,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
    - Will save as TIFF 128-bit
 4. `JxrEncApp -i krita.tif -o final.jxr -q 1`
 
-My thinking:
+### My thinking
 
 - JPEG XR rooted from Windows HD Photo
    - Windows, Xbox, and DirectX are using it
