@@ -110,6 +110,16 @@ Transfer function is a function that convert a number (luminance value) to an ac
 | `bt2020_ncl`  | Rec.2020 Non-constant luminance |
 | `bt2020_cl`   | Rec.2020 Constant luminance     |
 
+## fmpeg color space
+
+| Color space  | Arguments                                                                |
+| ------------ | ------------------------------------------------------------------------ |
+| sRGB         | `-color_primaries bt709 -color_trc iec61966-2-1 -colorspace rgb`         |
+| Rec.709      | `-color_primaries bt709 -color_trc bt709 -colorspace bt709`              |
+| Rec.2020 HLG | `-color_primaries bt2020 -color_trc arib-std-b67 -colorspace bt2020_ncl` |
+| Rec.2020 PQ  | `-color_primaries bt2020 -color_trc smpte2084 -colorspace bt2020_ncl`    |
+| DCI-P3       | `-color_primaries smpte432 -color_trc smpte428 -colorspace rgb`          |
+
 ## 2025-07-27
 
 - Why Node.js Test Runner is not prime time yet?
