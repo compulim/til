@@ -24,6 +24,20 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 </details>
 
+## 2025-08-09
+
+### Create HDR wallpaper (JPEG XR)
+
+1. DaVinci Resolve
+   - Timeline color management: DaVinci YRGB Color Managed, color processing mode HDR, output color spaceHDR HLG
+   - Color add a final node: Color Space Transform (Rec.2020/Rec.2100 HLG -> sRGB/Rec.2100 ST2084)
+   - Deliver: TIFF, RGB 16-bit, color space tag Rec.2020, gamma tag Rec.2100 ST2084
+2. `ffmpeg -i davinci.tif -color_primaries bt2020 -color_trc smpte2084 krita.jxl -y`
+   - Tag output with color space Rec.2020, transform function Rec.2100 ST2084 (a.k.a. HLG PQ)
+3. Open Krita, save as TIFF, check "Store alpha channel (transparency)"
+   - Will save as TIFF 128-bit
+4. `JxrEncApp -i darker5.tif -o darker5.jxr -q 1`
+
 ## 2025-07-27
 
 - Why Node.js Test Runner is not prime time yet?
