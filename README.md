@@ -63,6 +63,19 @@ My thinking:
 
 Read related from [Reddit](https://www.reddit.com/r/editing/comments/ovcisw/comment/k1660hv/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button).
 
+### Color space
+
+Color space means, a conversion map from a series of number (RGB, YUV, CMYK) to an actual color (wavelength). 100% red, 0% green, 0% blue in sRGB and Rec.709 looks very similar, minus the luminance difference due to different gamma. But 100%/0%/0% in Rec.709 and Rec.2020 is a different red.
+
+Gamma tag means, a conversion function from a number (luminance value) to an actual brightness. RGB has no explicit luminance value, Y in YUV and K in CMYK is the luminance value.
+
+- sRGB is mostly for computers, effective gamma of 2.2
+   - Darker part is 1.0 (linear), brighter part is 2.4
+- Rec.709 is mostly for SDR, generally pure gamma 2.4
+   - sRGB and Rec.709 is on the same color space
+- Rec.2020 is mostly for HDR, gamma is either HLG or PQ
+   - Rec.2020 is on different/expanded color space
+
 ## 2025-07-27
 
 - Why Node.js Test Runner is not prime time yet?
