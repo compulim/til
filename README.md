@@ -24,6 +24,20 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 </details>
 
+## 2025-08-11
+
+Converts a video to ProRes Proxy.
+
+```sh
+ffmpeg -i input.mp4 -c:v prores_aw -profile:v 0 -pix_fmt yuv422p10le output.mov
+```
+
+With half resolution.
+
+```sh
+ffmpeg -i input.mp4 -c:v prores_aw -profile:v 0 -pix_fmt yuv422p10le -vf "scale=iw/2:ih/2" output.mov
+```
+
 ## 2025-08-09
 
 ### Create HDR wallpaper (JPEG XR)
