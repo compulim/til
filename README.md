@@ -26,7 +26,10 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 ## 2025-08-21
 
-To hide a prop, instead of using a private/random value as the prop key, use React context.
+### React tips
+
+- To hide a prop, instead of using a private/random value as the prop key, use React context
+- To turn a render function into a component: `function MyComponent({ renderFn }) { return <>{renderFn()}</> }`
 
 ## 2025-08-11
 
