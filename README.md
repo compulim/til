@@ -24,6 +24,10 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 </details>
 
+## 2025-08-21
+
+To hide a prop, instead of using a private/random value as the prop key, use React context.
+
 ## 2025-08-11
 
 Converts a video to ProRes Proxy.
