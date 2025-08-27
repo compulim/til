@@ -24,6 +24,12 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 </details>
 
+## 2025-08-27
+
+- `ReactNode` vs. `ReactElement`
+   - (Input, broader) `children` prop is `ReactNode`
+   - (Output, narrower) `FunctionComponent<P>` is `(props: P) => ReactElement | null`
+
 ## 2025-08-21
 
 ### React tips
