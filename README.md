@@ -24,6 +24,10 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 </details>
 
+## 2025-08-30
+
+"Adding features means touching code. Touching code could introduce bugs. As developer, bugs are nightmare. We should appreciate courageous developers who add features without fear of bugs. They take the risk and manage it well."
+
 ## 2025-08-27
 
 - `ReactNode` vs. `ReactElement`
