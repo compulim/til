@@ -24,6 +24,39 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 </details>
 
+## 2025-09-25
+
+Given a JavaScript file importing a package, the following code will find the `package.json` of the imported package. It will walk `node_modules` and will find the correct instance/version of the package.
+
+```ts
+import { resolve as importMetaResolve } from 'import-meta-resolve';
+import { readPackageUp } from 'read-pkg-up';
+
+function getPackageJson(pathOfTheCodeImportingThePackage, packageName) {
+  const importPathURL = importMetaResolve(packageName, pathToFileURL(`${pathOfTheCodeImportingThePackage}/`))
+
+  if (!importPathURL.startsWith('file:')) {
+    // There is no `package.json` for package under node: or data:.
+    return;
+  }
+
+  const { packageJson } = await readPublishingPackageJSONUp(fileURLToPath(importPathURL));
+
+  return packageJson;
+}
+
+// Some packages has `package.json` inside their /dist for specifying CJS/ESM, they are not the publishing package.json, ignore them.
+function readPublishingPackageJSONUp(cwd) {
+  const work = async cwd => {
+    const result = await readPackageUp({ cwd });
+
+    return result.packageJson.name ? result : work(dirname(cwd));
+  };
+
+  return work(cwd);
+}
+```
+
 ## 2025-08-30
 
 "Adding features means touching code. Touching code could introduce bugs. As developer, bugs are nightmare. We should appreciate courageous developers who add features without fear of bugs. They take the risk and manage it well."
