@@ -26,7 +26,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 ## 2025-09-25
 
-Given a JavaScript file importing a package, the following code will find the `package.json` of the imported package. It will walk `node_modules` and will find the correct instance/version of the package.
+Given a JavaScript file importing a package, the following code will find the `package.json` of the imported package. It will walk `node_modules` and find the correct instance/version of the package relative to the JavaScript file location.
 
 ```ts
 import { resolve as importMetaResolve } from 'import-meta-resolve';
