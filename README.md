@@ -24,6 +24,22 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 </details>
 
+## 2025-12-07
+
+### Raspberry Pi as DHCP server
+
+Given an Ethernet adapter is connected to `eth0` and will be used to distribute IP addresses.
+
+- `sudo nmtui`
+   - "Edit a connection" > "Wired connection"
+   - Set IPv4 to manual and assign an IP address, says, `10.142.0.1/8`
+- `sudo apt install dnsmasq`
+- `sudo pico /etc/dnsmasq.conf` and append
+   - `interface=eth0`
+   - `dhcp-range=10.142.0.2,10.142.0.254,7d`
+
+To check DHCP leases: `cat /var/lib/misc/dnsmasq.leases`.
+
 ## 2025-09-25
 
 Given a JavaScript file importing a package, the following code will find the `package.json` of the imported package. It will walk `node_modules` and find the correct instance/version of the package relative to the JavaScript file location.
