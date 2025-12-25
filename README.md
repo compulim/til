@@ -24,6 +24,19 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 </details>
 
+## 2025-12-24
+
+### Raspberry Pi CPU report as Matter device
+
+(The following snippet need flush.)
+
+```sh
+npm i -g @matter/examples
+echo s=$(vcgencmd measure_temp); s=${s#*temp=}; s=${s%%\'C*}; echo $((${s%.*}${s#*.}0)) >> get-temp.sh
+chmod +x get-temp.sh
+matter-sensor --value="get-temp.sh"
+```
+
 ## 2025-12-07
 
 ### Raspberry Pi as DHCP server
