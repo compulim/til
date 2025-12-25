@@ -32,7 +32,15 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 ```sh
 npm i -g @matter/examples
-echo s=$(vcgencmd measure_temp); s=${s#*temp=}; s=${s%%\'C*}; echo $((${s%.*}${s#*.}0)) >> get-temp.sh
+
+cat > get-temp.sh << 'EOF'
+#/bin/bash
+s=$(vcgencmd measure_temp)
+s=${s#*temp=}
+s=${s%%\'C*}
+echo $((${s%.*}${s#*.}0))
+EOF
+
 chmod +x get-temp.sh
 matter-sensor --value="get-temp.sh"
 ```
