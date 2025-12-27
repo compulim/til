@@ -24,6 +24,25 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 </details>
 
+## 2025-12-27
+
+### Node.js test runner with Happy DOM
+
+- `node --test --import happy-dom-import.mjs your-test.mjs`
+   - Need to use `--import` than `--test-global-setup`
+   - `--import`: Will persist `globalThis`
+   - `--test-global-setup`: Will not persist `globalThis`
+- If hitting "promise not resolved" timeout, it means `unregister()` is not being called on teardown
+
+### `happy-dom-import.mjs`
+
+```js
+import { register, unregister } from '@happy-dom@global-registrator';
+
+before(() => register({ ... }));
+after(() => unregister());
+```
+
 ## 2025-12-24
 
 ### Raspberry Pi CPU report as Matter device
