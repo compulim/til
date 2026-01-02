@@ -24,6 +24,67 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 </details>
 
+## 2026-01-02
+
+### Migrate to Node.js Test Runner
+
+#### `describe`/`test`
+
+```diff
+- import { afterEach, beforeEach, describe, test } from '@jest/globals';
++ import { afterEach, beforeEach, describe, test } from 'node:test';
+```
+
+#### Assertation/expectation: `expect`
+
+```diff
++ npm install expect
+
+- import { expect } from '@jest/globals';
++ import { expect } from 'expect';
+```
+
+#### Mock: `fn`
+
+```diff
+- import { fn } from 'jest-mock';
++ import { mock } from 'node:test';
+
+- const handler = fn().mockImplementation(() => {});
++ const handler = mock.fn();
++ handler.mock.mockImplementation(() => {});
+
+- handler.mockReset();
++ handler.mock.resetCalls();
+```
+
+#### Spy: `spyOn`
+
+```diff
+- import { spyOn } from 'jest-mock';
++ import { mock } from 'node:test';
+
+- const warn = spyOn(console, 'warn').mockImplementation(() => {});
++ const warn = mock.method(console, 'warn');
++ warn.mock.mockImplementation(() => {});
+
+- warn.mockRestore();
++ warn.mock.restore();
+```
+
+#### Expectation for mocking
+
+```diff
+- const handler = jest.fn();
++ const handler = mock.fn();
+
+- expect(handler).toHaveBeenCalledTimes(1);
++ expect(handler.mock.callCount()).toBe(1);
+
+- expect(handler).toHaveBeenNthCalledWith(1, 'Hello, World!');
++ expect(handler.mock.calls[0]?.arguments).toEqual(['Hello, World!']);
+```
+
 ## 2025-12-27
 
 ### Node.js test runner with Happy DOM
