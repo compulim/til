@@ -56,6 +56,9 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 - handler.mockReset();
 + handler.mock.resetCalls();
+
+- handler.mockReturnValue(123);
++ handler.mock.mockImplementation(() => 123);
 ```
 
 Behaviorial difference:
@@ -89,6 +92,9 @@ Behaviorial difference:
 
 - expect(handler).toHaveBeenNthCalledWith(1, 'Hello, World!');
 + expect(handler.mock.calls[0]?.arguments).toEqual(['Hello, World!']);
+
+- expect(handler).toHaveBeenLastCalledWith('Aloha!');
++ expect(handler.mock.calls.at(-1)?.arguments).toEqual(['Aloha!']);
 ```
 
 ## 2025-12-27
