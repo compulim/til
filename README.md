@@ -62,6 +62,7 @@ Behaviorial difference:
 
 - Calling `jest.Mocked<T>.mockImplementationOnce()` *twice* will queue 2 calls, first call to first `mIO()`, second call to second `mIO()`
 - Calling `mock.Mock<T>.mockImplementationOnce()` twice will have the second call overriding the first one
+   - If this is not desirable, consider using `mockImplementation()` along with `mockInstance.mock.calls.length` to know how many calls have been called
 
 #### Spy: `spyOn`
 
