@@ -58,6 +58,11 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 + handler.mock.resetCalls();
 ```
 
+Behaviorial difference:
+
+- Calling `jest.Mocked<T>.mockImplementationOnce()` *twice* will queue 2 calls
+- Calling `mock.Mock<T>.mockImplementationOnce()` twice will have the second call overriding the first one
+
 #### Spy: `spyOn`
 
 ```diff
