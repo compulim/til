@@ -97,6 +97,12 @@ Behaviorial difference:
 + expect(handler.mock.calls.at(-1)?.arguments).toEqual(['Aloha!']);
 ```
 
+#### Troubleshooting
+
+- If Node.js test runner is not stopping
+   - If `renderHook()` is called, make sure `cleanup()` or `unmount()` is called at end of the test
+   - Do not await on `act()`, for example, `beforeEach(() => act(...))` will hang
+
 ## 2025-12-27
 
 ### Node.js test runner with Happy DOM
