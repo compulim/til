@@ -30,7 +30,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 > Repro in `jest@29.7.0`.
 
-Jest pretty-print the error message when expectation fail. The pretty-print will remove cyclic properties. However, that removal logic is triggering error in React.
+Jest pretty-print the error message when expectation fail. The pretty-print will remove cyclic properties (`deepCyclicCopyReplaceable`). However, that removal logic is triggering error in React.
 
 Thus, React will error out. If the component has a bad unmount logic, then, the error would be replaced by the unmount error. Essentially, hiding the original expectation error.
 
