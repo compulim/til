@@ -37,8 +37,8 @@ Thus, React will error out. If the component has a bad unmount logic, then, the 
 The fix would be "don't put `HTMLElement` with React binding into the argument of `toBe()`/`toEqual()`/`toStrictEqual()`."
 
 ```diff
-- expect(somethingElse).toBe(htmlElementWithReactBinding)
-+ expect(somethingElse === htmlElementWithReactBinding).toBe(true)
+- expect(somethingElse).toBe(htmlElementWithReactBinding);
++ expect(somethingElse === htmlElementWithReactBinding).toBe(true);
 ```
 
 ## 2026-01-02
