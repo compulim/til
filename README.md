@@ -34,7 +34,12 @@ Jest pretty-print the error message when expectation fail. The pretty-print will
 
 Thus, React will error out. If the component has a bad unmount logic, then, the error would be replaced by the unmount error. Essentially, hiding the original expectation error.
 
-The fix would be "don't put `HTMLElement` with React binding into the argument of `toBe()`/`toEqual()`/`toStrictEqual()`." For example, `expect(somethingElse === htmlElementWithReactBinding).toBe(true)`.
+The fix would be "don't put `HTMLElement` with React binding into the argument of `toBe()`/`toEqual()`/`toStrictEqual()`."
+
+```diff
+- expect(somethingElse).toBe(htmlElementWithReactBinding)
++ expect(somethingElse === htmlElementWithReactBinding).toBe(true)
+```
 
 ## 2026-01-02
 
