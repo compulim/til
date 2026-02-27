@@ -24,6 +24,16 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 </details>
 
+## 2026-02-27
+
+### Why Jest `expect(somethingElse).toBe(htmlElementWithReactBinding)` would fail with unmount errors?
+
+> Repro in `jest@29.7.0`.
+
+Jest pretty-print the error message when expectation fail. The pretty-print will remove cyclic properties. However, that removal logic is triggering error in React.
+
+Thus, React will error out. If the component has a bad unmount logic, then, the error would be replaced by the unmount error. Essentially, hiding the original expectation error.
+
 ## 2026-01-02
 
 ### Migrate to Node.js Test Runner
