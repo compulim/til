@@ -31,6 +31,7 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 5 reasons.
 
 - The component is not memorized and its parent is re-rendering
+   - Put `console.log('Rendering <ParentComponent>')`
 - Props passing to the component has changed
 - Context the component is subscribing to has changed
    - Look out for `function useMyCallback() { return useContext(MyContext).myCallback; }`, it should track `MyContext` instead of the return value of `useMyCallback()`
