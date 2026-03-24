@@ -24,6 +24,20 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 </details>
 
+## 2026-03-23
+
+### Why a React component is re-rendered?
+
+5 reasons.
+
+- The component is not memorized and its parent is re-rendering
+- Props passing to the component has changed
+- Context the component is subscribing to has changed
+   - Look out for `function useMyCallback() { return useContext(MyContext).myCallback; }`, it should track `MyContext` instead of the return value of `useMyCallback()`
+- Calling the setter of an `useState()`
+- Unmount/remount
+   - Use `const sessionId = useRef(crypto.randomUUID().substring(0, 8))` to track instances
+
 ## 2026-02-27
 
 ### Why Jest `expect(somethingElse).toBe(htmlElementWithReactBinding)` would fail with unmount errors?
