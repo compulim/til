@@ -28,16 +28,16 @@ Point form for speedy writing. 80% correct at the time of writing. Just remind m
 
 ### Why a React component is re-rendered?
 
-5 reasons.
+5 ways.
 
 - The component is not memorized and its parent is re-rendering
-   - Put `console.log('Rendering <ParentComponent>')`
+   - Put `console.log('Rendering <ParentComponent>')` to see if parent is getting re-rendered
 - Props passing to the component has changed
 - Context the component is subscribing to has changed
    - Look out for `function useMyCallback() { return useContext(MyContext).myCallback; }`, it should track `MyContext` instead of the return value of `useMyCallback()`
 - Calling the setter of an `useState()`
 - Unmount/remount
-   - Use `const sessionId = useRef(crypto.randomUUID().substring(0, 8))` to track instances
+   - Use `console.log(useRef(crypto.randomUUID().substring(0, 8)).current)` to track instances
 
 ## 2026-02-27
 
